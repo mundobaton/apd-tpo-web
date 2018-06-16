@@ -17,3 +17,11 @@
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 
 apd-tpo-web.iml
+
+*.bin
+
+*.lock
+
+.gradle/buildOutputCleanup/cache.properties
+
+.gradle/vcsWorkingDirs/gc.properties
