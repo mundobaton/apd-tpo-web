@@ -39,8 +39,7 @@ public class ArticulosServlet extends HttpServlet {
 			resp.setCharacterEncoding("UTF-8");
 			resp.getWriter().write(this.getArticulos());
 		}
-
-		super.doGet(req, resp);
+		
 	}
 
 	private String getArticulos() throws RemoteBusinessException {

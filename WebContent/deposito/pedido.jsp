@@ -29,7 +29,7 @@
 				<thead>
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">ArtÃ­culo</th>
+						<th scope="col">Artículo</th>
 						<th scope="col">Precio</th>
 						<th scope="col">Cantidad</th>
 						<th scope="col">Subtotal</th>

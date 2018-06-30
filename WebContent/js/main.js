@@ -1,9 +1,4 @@
 $(function() {
-	
-	
-	
-	
-
 
 	$('[data-toggle="tooltip"]').tooltip();
 
@@ -40,25 +35,12 @@ $(function() {
 		// TODO Actualizar el total del carrito cuando se elimina un elemento.-
 		$('#cart').find("#aid-" + $this.data('aid')).remove();
 		$('#removeFromCart').modal('hide');
-	});
-
-	if ($(document).find('#articulos')) {
-		$.ajax({
-			url : getBaseUrl() + "/articulos?action=list",
-			dataType : 'json',
-			success : function(result) {
-				console.log(result);
-			},
-			error : function(xhr, ajaxOptions, thrownError) {
-				console.log(xhr.responseText);
-			}
-		});
-
-	}
+	});	
 
 });
 
-function getBaseUrl(){
+function getBaseUrl() {
 	var getUrl = window.location;
-	return getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+	return getUrl.protocol + "//" + getUrl.host + "/"
+			+ getUrl.pathname.split('/')[1];
 }

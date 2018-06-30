@@ -1,4 +1,7 @@
 
+<%@page import="edu.uade.apd.tpo.repository.dto.ArticuloDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="edu.uade.apd.tpo.repository.delegate.DepositoDelegate"%>
 <jsp:include page="includes/header.jsp" />
 <div class="jumbotron">
 	<div class="container-fluid">
@@ -25,49 +28,23 @@
 
 <main role="main" class="container">
 
-<section id="articles">
+<section id="articles-home">
 	<h2 class="title">Novedades</h2>
 	<div class="row">
+	<% List<ArticuloDTO> articulos = DepositoDelegate.getInstance().getArticulos(); 
+	for(ArticuloDTO art : articulos){
+	%>
 		<div class="col-xs-12 col-sm-6 col-lg-3">
-			<h3 class="article-title">Articulo 1</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
+			<h3 class="article-title"><%=art.getNombre()%></h3>
+			<p class="description"><%=art.getCodigoBarras()%></p>
+			<p class="price-tag">$<%=art.getPrecio()%></p>
 			<p>
 				<a class="btn btn-secondary"
-					href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
+					href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"
 					role="button">Ver más »</a>
 			</p>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3">
-			<h3 class="article-title">Articulo 2</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary"
-					href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					role="button">Ver más »</a>
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3">
-			<h3 class="article-title">Articulo 3</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary"
-					href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					role="button">Ver más »</a>
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3">
-			<h3 class="article-title">Articulo 4</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary"
-					href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					role="button">Ver más »</a>
-			</p>
-		</div>
+		<%}%>
 	</div>
 	<hr>
 	<div class="d-flex flex-row-reverse">
