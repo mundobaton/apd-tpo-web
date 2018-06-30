@@ -10,7 +10,7 @@
 			<p class="description">Descripcion del articulo completa</p>
 			<p class="price-tag">$99.00</p>
 			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
+				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
 					data-aid="1" data-toggle="modal" data-target="#addToCart"
 					role="button">Comprar</a>
 			</p>
@@ -20,7 +20,7 @@
 			<p class="description">Descripcion del articulo completa</p>
 			<p class="price-tag">$99.00</p>
 			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
+				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
 					data-aid="2" data-toggle="modal" data-target="#addToCart"
 					role="button">Comprar</a>
 			</p>
@@ -30,7 +30,7 @@
 			<p class="description">Descripcion del articulo completa</p>
 			<p class="price-tag">$99.00</p>
 			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
+				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
 					data-aid="3" data-toggle="modal" data-target="#addToCart"
 					role="button">Comprar</a>
 			</p>
@@ -40,7 +40,7 @@
 			<p class="description">Descripcion del articulo completa</p>
 			<p class="price-tag">$99.00</p>
 			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
+				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
 					data-aid="4" data-toggle="modal" data-target="#addToCart"
 					role="button">Comprar</a>
 			</p>
@@ -50,7 +50,7 @@
 			<p class="description">Descripcion del articulo completa</p>
 			<p class="price-tag">$99.00</p>
 			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
+				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
 					data-aid="5" data-toggle="modal" data-target="#addToCart"
 					role="button">Comprar</a>
 			</p>
@@ -60,7 +60,7 @@
 			<p class="description">Descripcion del articulo completa</p>
 			<p class="price-tag">$99.00</p>
 			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
+				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
 					data-aid="6" data-toggle="modal" data-target="#addToCart"
 					role="button">Comprar</a>
 			</p>
@@ -70,7 +70,7 @@
 			<p class="description">Descripcion del articulo completa</p>
 			<p class="price-tag">$99.00</p>
 			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
+				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
 					data-aid="7" data-toggle="modal" data-target="#addToCart"
 					role="button">Comprar</a>
 			</p>
@@ -80,7 +80,7 @@
 			<p class="description">Descripcion del articulo completa</p>
 			<p class="price-tag">$99.00</p>
 			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
+				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
 					data-aid="8" data-toggle="modal" data-target="#addToCart"
 					role="button">Comprar</a>
 			</p>

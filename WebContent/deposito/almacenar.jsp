@@ -3,13 +3,12 @@
 <section id="deposito">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">DepÃ³sito</a></li>
-			<li class="breadcrumb-item"><a href="/deposito/index.jsp">AlmacÃ©n</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Almacenar
-				artÃ­culo</li>
+			<li class="breadcrumb-item"><a href="#">Depósito</a></li>
+			<li class="breadcrumb-item"><a href="<%=request.getContextPath()%>/deposito/index.jsp">Almacén</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Almacenar artí­culo</li>
 		</ol>
 	</nav>
-	<h2 class="title text-muted">Almacenar artÃ­culo</h2>
+	<h2 class="title text-muted">Almacenar artí­culo</h2>
 	<form method="post" action="almacenar.jsp"
 		enctype="multipart/form-data">
 		<div class="form-row">
@@ -28,9 +27,8 @@
 		</div>
 		<hr />
 		<div class="d-flex justify-content-end">
-			<a class="btn btn-secondary mr-3" href="/deposito/index.jsp">Volver
-				al almacÃ©n</a> <a class="btn btn-primary" href="#">Almacenar
-				artÃ­culo</a>
+			<a class="btn btn-secondary mr-3" href="<%=request.getContextPath()%>/deposito/index.jsp">Volver
+				al almacén</a> <a class="btn btn-primary" href="#">Almacenar artí­culo</a>
 		</div>
 	</form>
 </section>

@@ -10,8 +10,8 @@
       <h2 class="title text-muted">Procesar OC Pendientes</h2>
       <div class="row">
         <div class="col">
-          <p>Si usted desea procesar manualmente las Ã“rdenes de Compra que se encuentran en estado pendiente, seleccione la opciÃ³n que se encuentra a continuaciÃ³n.</p>
-          <p><a id="procesarOC" href="#" class="btn btn-primary">Procesar Ã“rdenes de Compra Pendientes</a></p>
+          <p>Si usted desea procesar manualmente las Órdenes de Compra que se encuentran en estado pendiente, seleccione la opción que se encuentra a continuación.</p>
+          <p><a id="procesarOC" href="#" class="btn btn-primary">Procesar Ó“rdenes de Compra Pendientes</a></p>
         </div>
       </div>
     </section>

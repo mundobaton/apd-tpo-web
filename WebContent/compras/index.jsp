@@ -26,7 +26,7 @@
 					<td class="item-status text-center"><span
 						class="badge badge-pill badge-warning">Pendiente</span></td>
 					<td class="text-center"><a class="item-open text-success"
-						href="/compras/orden.jsp?oid=1"><i class="fas fa-eye"></i></a></td>
+						href="<%=request.getContextPath()%>/compras/orden.jsp?oid=1"><i class="fas fa-eye"></i></a></td>
 				</tr>
 				<tr class="cart-item">
 					<td class="item-id">2</td>
@@ -34,7 +34,7 @@
 					<td class="item-status text-center"><span
 						class="badge badge-pill badge-success">Ejecutada</span></td>
 					<td class="text-center"><a class="item-open text-success"
-						href="/compras/orden.jsp?oid=2"><i class="fas fa-eye"></i></a></td>
+						href="<%=request.getContextPath()%>/compras/orden.jsp?oid=2"><i class="fas fa-eye"></i></a></td>
 				</tr>
 				<tr class="cart-item">
 					<td class="item-id">3</td>
@@ -42,7 +42,7 @@
 					<td class="item-status text-center"><span
 						class="badge badge-pill badge-danger">Cancelada</span></td>
 					<td class="text-center"><a class="item-open text-success"
-						href="/compras/orden.jsp?oid=3"><i class="fas fa-eye"></i></a></td>
+						href="<%=request.getContextPath()%>/compras/orden.jsp?oid=3"><i class="fas fa-eye"></i></a></td>
 				</tr>
 			</tbody>
 		</table>

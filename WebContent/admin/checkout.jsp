@@ -1,5 +1,5 @@
 
-<jsp:include page="includes/header.jsp" />
+<jsp:include page="../includes/header.jsp" />
 
 <main role="main" class="container">
 
@@ -91,4 +91,4 @@
 </section>
 
 </main>
-<jsp:include page="includes/footer.jsp" />
+<jsp:include page="../includes/footer.jsp" />

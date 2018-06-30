@@ -1,4 +1,4 @@
-<jsp:include page="includes/header.jsp" />
+<jsp:include page="../includes/header.jsp" />
 
 <main role="main" class="container">
 
@@ -49,7 +49,7 @@
 		</div>
 	</form>
 	<hr class="mb-4">
-	<a class="btn btn-primary btn-lg btn-block" href="/checkout.jsp">Continuar
+	<a class="btn btn-primary btn-lg btn-block" href="<%=request.getContextPath()%>/admin/checkout.jsp">Continuar
 		al checkout</a>
 </section>
 <!--Modal-->
@@ -80,4 +80,4 @@
 </div>
 
 </main>
-<jsp:include page="includes/footer.jsp" />
+<jsp:include page="../includes/footer.jsp" />

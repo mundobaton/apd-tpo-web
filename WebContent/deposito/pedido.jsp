@@ -3,11 +3,9 @@
 <section id="deposito-pedido">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">DepÃ³sito</a></li>
-			<li class="breadcrumb-item"><a href="/deposito/pedidos.jsp">Pedidos
-					a Completar</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Ver
-				Pedido #<span class="id">{}</span>
+			<li class="breadcrumb-item"><a href="#">Depósito</a></li>
+			<li class="breadcrumb-item"><a href="<%=request.getContextPath()%>/deposito/pedidos.jsp">Pedidos a Completar</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Ver Pedido #<span class="id">{}</span>
 			</li>
 		</ol>
 	</nav>
@@ -65,8 +63,8 @@
 	</ul>
 	<hr />
 	<div class="d-flex justify-content-end">
-		<a class="btn btn-secondary mr-3" href="/deposito/pedidos.jsp">Volver
-			al listado</a> <a class="btn btn-primary" href="#">Completar Pedido</a>
+		<a class="btn btn-secondary mr-3" href="<%=request.getContextPath()%>/deposito/pedidos.jsp">Volver al listado</a> 
+		<a class="btn btn-primary" href="#">Completar Pedido</a>
 	</div>
 </section>
 </main>
