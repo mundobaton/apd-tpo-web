@@ -25,3 +25,4 @@ apd-tpo-web.iml
 .gradle/buildOutputCleanup/cache.properties
 
 .gradle/vcsWorkingDirs/gc.properties
+/.gradle/
