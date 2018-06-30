@@ -3,7 +3,7 @@
 <main role="main" class="container">
 
 <section id="articles">
-	<h2 class="title">Cat√°logo de Art√≠culos</h2>
+	<h2 class="title">Cat·logo de ArtÌculos</h2>
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
 			<h3 class="article-title">Articulo 1</h3>
@@ -15,76 +15,7 @@
 					role="button">Comprar</a>
 			</p>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title">Articulo 2</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					data-aid="2" data-toggle="modal" data-target="#addToCart"
-					role="button">Comprar</a>
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title">Articulo 3</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					data-aid="3" data-toggle="modal" data-target="#addToCart"
-					role="button">Comprar</a>
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title">Articulo 4</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					data-aid="4" data-toggle="modal" data-target="#addToCart"
-					role="button">Comprar</a>
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title">Articulo 5</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					data-aid="5" data-toggle="modal" data-target="#addToCart"
-					role="button">Comprar</a>
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title">Articulo 6</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					data-aid="6" data-toggle="modal" data-target="#addToCart"
-					role="button">Comprar</a>
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title">Articulo 7</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					data-aid="7" data-toggle="modal" data-target="#addToCart"
-					role="button">Comprar</a>
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title">Articulo 8</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=[aid]"
-					data-aid="8" data-toggle="modal" data-target="#addToCart"
-					role="button">Comprar</a>
-			</p>
-		</div>
+		
 	</div>
 </section>
 
