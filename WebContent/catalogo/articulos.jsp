@@ -14,18 +14,23 @@
 			for (ArticuloDTO art : articulos) {
 		%>
 		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title"><%=art.getNombre()%></h3>
-			<p class="description">
-				<small>Código de barras: <%=art.getCodigoBarras()%><br/>
-				Presentación: <%=art.getPresentacion()%><br/>
-				Tamaño: <%=art.getTamano()%><br/>
-				Unidad: <%=art.getUnidad()%></small>
-			</p>
-			<p class="price-tag">$<%=art.getPrecio()%></p>
-			<p>
-				<a class="btn btn-primary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"><i class="fas fa-eye"></i></a>
-				<a class="btn btn-success" href="#" data-aid="1" data-toggle="modal" data-target="#addToCart" role="button">Comprar</a>
-			</p>
+			<div class="article-content p-2">
+				<h3 class="article-title"><%=art.getNombre()%></h3>
+				<p class="description">
+					<small>Código de barras: <%=art.getCodigoBarras()%><br />
+						Presentación: <%=art.getPresentacion()%><br /> Tamaño: <%=art.getTamano()%><br />
+						Unidad: <%=art.getUnidad()%></small>
+				</p>
+				<p class="price-tag">
+					$<%=art.getPrecio()%></p>
+				<div class="d-flex justify-content-between">
+					<a class="btn btn-secondary"
+						href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"><i
+						class="fas fa-eye"></i></a> <a class="btn btn-success" href="#"
+						data-aid="1" data-toggle="modal" data-target="#addToCart"
+						role="button">Comprar</a>
+				</div>
+			</div>
 		</div>
 		<%
 			}
