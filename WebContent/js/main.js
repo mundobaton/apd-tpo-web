@@ -1,4 +1,9 @@
 $(function() {
+	
+	
+	
+	
+
 
 	$('[data-toggle="tooltip"]').tooltip();
 
@@ -39,7 +44,7 @@ $(function() {
 
 	if ($(document).find('#articulos')) {
 		$.ajax({
-			url : "/apd-tpo-web/articulos?action=list",
+			url : getBaseUrl() + "/articulos?action=list",
 			dataType : 'json',
 			success : function(result) {
 				console.log(result);
@@ -52,3 +57,8 @@ $(function() {
 	}
 
 });
+
+function getBaseUrl(){
+	var getUrl = window.location;
+	return getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+}
