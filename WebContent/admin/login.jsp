@@ -8,16 +8,16 @@
 			<a href="<%=request.getContextPath()%>/index.jsp"> <img class="" src="<%=request.getContextPath()%>/img/logo_circle_100.png"
 				alt="Logo Das VerrÃ¼ckte Lagerhaus" width="100" height="100">
 			</a>
-			<h1 class="h3 my-4 font-weight-normal">Inicie sesiÃ³n</h1>
+			<h1 class="h3 my-4 font-weight-normal">Inicie sesión</h1>
 			<div class="form-group">
-				<label for="inputEmail" class="sr-only">Email</label> <input
+				<label for="inputEmail" class="sr-only">Correo electrónico</label> <input
 					type="email" id="inputEmail" class="form-control"
-					placeholder="Correo electrÃ³nico" required autofocus>
+					placeholder="Correo electrónico" required autofocus>
 			</div>
 			<div class="form-group">
-				<label for="inputPassword" class="sr-only">Password</label> <input
+				<label for="inputPassword" class="sr-only">Contraseña</label> <input
 					type="password" id="inputPassword" class="form-control"
-					placeholder="ContraseÃ±a" required>
+					placeholder="Contraseña" required>
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
 		</form>
