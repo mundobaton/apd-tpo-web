@@ -1,3 +1,6 @@
+<%@page import="edu.uade.apd.tpo.repository.dto.ArticuloDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="edu.uade.apd.tpo.repository.delegate.DepositoDelegate"%>
 <jsp:include page="../includes/header.jsp" />
 
 <main role="main" class="container">
@@ -5,18 +8,29 @@
 <section id="articles-section">
 	<h2 class="title">Catálogo de Artículos</h2>
 	<div class="row">
-		<!--div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
-			<h3 class="article-title">Articulo 1</h3>
-			<p class="description">Descripcion del articulo completa</p>
-			<p class="price-tag">$99.00</p>
-			<p>
-				<a class="btn btn-secondary" href="/catalogo/articulo.jsp?id=[aid]"
-					data-aid="1" data-toggle="modal" data-target="#addToCart"
-					role="button">Comprar</a>
+
+		<%
+			List<ArticuloDTO> articulos = DepositoDelegate.getInstance().getArticulos();
+			for (ArticuloDTO art : articulos) {
+		%>
+		<div class="col-xs-12 col-sm-6 col-lg-3 article py-4">
+			<h3 class="article-title"><%=art.getNombre()%></h3>
+			<p class="description">
+				<small>Código de barras: <%=art.getCodigoBarras()%><br/>
+				Presentación: <%=art.getPresentacion()%><br/>
+				Tamaño: <%=art.getTamano()%><br/>
+				Unidad: <%=art.getUnidad()%></small>
 			</p>
-		</div-->
-		<div class="col text-center" id="loading"><i class="text-muted fa fa-spinner fa-spin fa-3x"></i></div>
-		
+			<p class="price-tag">$<%=art.getPrecio()%></p>
+			<p>
+				<a class="btn btn-primary" href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"><i class="fas fa-eye"></i></a>
+				<a class="btn btn-success" href="#" data-aid="1" data-toggle="modal" data-target="#addToCart" role="button">Comprar</a>
+			</p>
+		</div>
+		<%
+			}
+		%>
+
 	</div>
 </section>
 
@@ -28,7 +42,8 @@
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Agregar al carrito</h5>
+				<h5 class="modal-title" id="exampleModalLongTitle">Agregar al
+					carrito</h5>
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Cerrar">
 					<span aria-hidden="true">&times;</span>
