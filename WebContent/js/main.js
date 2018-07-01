@@ -7,9 +7,9 @@ $(function() {
 			function(e) {
 				var btn = $(e.relatedTarget);
 				$(".alert").alert('close');
-				$('#addToCart h3').text(
+				$('#addToCart .article-title').text(
 						btn.parents(".article").find(".article-title").text());
-				$('#addToCart p').html(
+				$('#addToCart .article-description').html(
 						btn.parents(".article").find(".description").html());
 				$('#aid').val(btn.data('aid'));
 				$('#precio').val(
@@ -18,8 +18,8 @@ $(function() {
 			});
 
 	$('#addToCart').on('hide.bs.modal', function(e) {
-		$('#addToCart h3').text("{nombre}");
-		$('#addToCart p').text("{descripcion}");
+		$('#addToCart .article-title').text("{nombre}");
+		$('#addToCart .article-description').text("{descripcion}");
 		$('#addToCart input[name=cantidad]').val(1);
 		$('#aid').val('');
 	});
@@ -28,7 +28,7 @@ $(function() {
 		e.preventDefault();
 		var item = {
 			aid : parseInt($('input[name=aid]').val()),
-			nombre : $('#addToCart h3').text(),
+			nombre : $('#addToCart .article-title').text(),
 			cant : parseInt($('input[name=cantidad]').val()),
 			precio : parseFloat($('input[name=precio]').val())
 		}

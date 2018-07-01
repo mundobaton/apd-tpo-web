@@ -60,8 +60,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12">
-							<h3>{nombre}</h3>
-							<p>{descripcion}</p>
+							<h3 class="article-title">{nombre}</h3>
+							<p class="article-description">{descripcion}</p>
 						</div>
 					</div>
 					<div class="form-group row">
