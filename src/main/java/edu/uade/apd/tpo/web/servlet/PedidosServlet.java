@@ -54,7 +54,7 @@ public class PedidosServlet extends HttpServlet {
 				delegate.agregarItemPedido(pedidoId, articuloId, cant);
 			}
 			delegate.finalizarCargaItems(pedidoId);
-			navigate(req, resp, "/congrats.jsp");
+			navigate(req, resp, "/admin/congrats.jsp?pedidoId=" + pedidoId);
 		}
 	}
 	
