@@ -27,8 +27,8 @@
 					<a class="btn btn-secondary"
 						href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"><i
 						class="fas fa-eye"></i></a> <a class="btn btn-success" href="#"
-						data-aid="<%=art.getId()%>" data-toggle="modal" data-target="#addToCart"
-						role="button">Comprar</a>
+						data-aid="<%=art.getId()%>" data-toggle="modal"
+						data-target="#addToCart" role="button">Comprar</a>
 				</div>
 			</div>
 		</div>
@@ -44,7 +44,7 @@
 <!-- Modal -->
 <div class="modal fade" id="addToCart" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
+	<form class="modal-dialog modal-dialog-centered" role="document" id="addItemToCart" method="get" action="?" enctype="multipart/form-data" >
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLongTitle">Agregar al
@@ -56,8 +56,6 @@
 			</div>
 			<div class="modal-body">
 				<div class="container">
-					<form method="get" action="addtocart.jsp"
-						enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-xs-12">
 								<h3>{nombre}</h3>
@@ -67,19 +65,18 @@
 						<div class="form-group row">
 							<label class="col-xs-12 col-sm-2 pl-0" for="cantidad">Cantidad</label>
 							<div class="col-xs-12 col-sm-10">
-								<input class="form-control" type="number" name="cantidad"
-									min="1" step="1" value="1" /> <input id="aid" type="hidden"
-									name="aid" value="" />
+								<input id="cantidad" class="form-control" type="number"
+									name="cantidad" min="1" step="1" value="1" /> <input id="aid"
+									type="hidden" name="aid" value="" />
 							</div>
 						</div>
-					</form>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary">Agregar</button>
+				<input type="submit" class="btn btn-primary" id="addItemToCartBtn" value="Agregar"/>
 			</div>
 		</div>
-	</div>
+	</form>
 </div>
 <jsp:include page="../includes/footer.jsp" />
