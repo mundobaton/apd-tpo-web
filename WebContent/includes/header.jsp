@@ -1,4 +1,5 @@
 <!doctype html>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@page import="edu.uade.apd.tpo.repository.dto.RolDTO"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.UsuarioDTO"%>
 <html class="no-js" lang="es">
@@ -6,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Das Verr點kte Lagerhaus</title>
+  <title>Das Verr眉ckte Lagerhaus</title>
   <meta name="description" content="TPO de la materia Aplicaciones Distribuidas.">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -25,7 +26,7 @@
     <![endif]-->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
       <a class="navbar-brand" href="<%= request.getContextPath() %>/index.jsp"><img src="<%= request.getContextPath() %>/img/logo_150x46.png" width="150" height="46"/></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Desplegar men脙潞">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Desplegar men脙聝脗潞">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -36,7 +37,7 @@
             <a class="nav-link" href="<%= request.getContextPath() %>/index.jsp">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= request.getContextPath() %>/catalogo/articulos.jsp">Cat醠ogo</a>
+            <a class="nav-link" href="<%= request.getContextPath() %>/catalogo/articulos.jsp">Cat谩logo</a>
           </li>
         <% } else { %>
         <% if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.COMPRAS || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
@@ -46,17 +47,17 @@
               Compras
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarCompras">
-              <a class="dropdown-item" href="<%= request.getContextPath() %>/compras/index.jsp">觬denes de Compra</a>
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/compras/index.jsp">脫rdenes de Compra</a>
               <a class="dropdown-item" href="<%= request.getContextPath() %>/compras/procesar.jsp">Procesar Pendientes</a>
             </div>
           </li>
           <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDeposito" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dep髎ito
+              Dep贸sito
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDeposito">
-              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/index.jsp">Almac閚 Reposici髇</a>
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/index.jsp">Almac茅n Reposici贸n</a>
             </div>
           </li>
           <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.DESPACHO || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
@@ -65,16 +66,13 @@
               Despacho
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDespacho">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/despacho/index.jsp">Pedidos a Despachar</a>
             </div>
           </li>
           <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.FACTURACION || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarFacturacion" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Facturaci髇
+              Facturaci贸n
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarFacturacion">
               <a class="dropdown-item" href="#">Action</a>
@@ -92,7 +90,7 @@
           <% if(request.getSession().getAttribute("cliente") == null && request.getSession().getAttribute("usuario") == null) { %>
             <a class="nav-link" href="<%= request.getContextPath() %>/admin/login.jsp"><span class="d-md-none">Ingresar</span><i class="fas fa-user-circle fa-2x d-none d-md-block"></i></a>
           <% } else { %>
-          <a class="nav-link" href="<%= request.getContextPath() %>/administracion?action=logout"><span class="d-md-none">Cerrar Sesi髇</span><i class="fas fa-sign-out-alt fa-2x d-none d-md-block""></i></a>
+          <a class="nav-link" href="<%= request.getContextPath() %>/administracion?action=logout"><span class="d-md-none">Cerrar Sesi贸n</span><i class="fas fa-sign-out-alt fa-2x d-none d-md-block""></i></a>
           <% } %>
           </li>
           <% if(request.getSession().getAttribute("cliente") != null) { %>
