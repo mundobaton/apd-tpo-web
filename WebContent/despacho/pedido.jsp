@@ -33,7 +33,8 @@
 		<%}%>
 	</h2>
 	<ul class="list-group">
-		<li class="list-group-item"><strong>Fecha: </strong><%=f.format(pedido.getFechaPedido())%></li>
+		<li class="list-group-item"><strong>Fecha de realización: </strong><%=f.format(pedido.getFechaPedido())%></li>
+		<li class="list-group-item"><strong>Fecha de despacho: </strong><%=f.format(pedido.getFechaDespacho())%></li>
 		<li class="list-group-item"><strong>Cliente: </strong><%=pedido.getCliente().getNombre()%></li>
 		<li class="list-group-item"><strong>Domicilio: </strong> <%=pedido.getDomicilio().getCalle()%>
 			<%=pedido.getDomicilio().getNumero() %> - (<%=pedido.getDomicilio().getCodigoPostal() %>) <%=pedido.getDomicilio().getLocalidad() %>, <%=pedido.getDomicilio().getProvincia() %>.</li>
@@ -75,7 +76,7 @@
 	<hr />
 	<div class="d-flex justify-content-end">
 		<a class="btn btn-secondary mr-3" href="<%=request.getContextPath()%>/despacho/index.jsp">Volver al listado</a> 
-		<a class="btn btn-primary" href="#">Despachar Pedido</a>
+		<a class="btn btn-primary" href="<%=request.getContextPath()%>/despacho?pid=<%=pedido.getId()%>">Despachar Pedido</a>
 	</div>
 	<%} %>
 </section>
