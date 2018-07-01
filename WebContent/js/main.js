@@ -168,18 +168,23 @@ $(function() {
 	$('#reponerItemForm').on('submit', function(e){
 		e.preventDefault();
 		var $form = $(this).serialize();
+		var $submit = $(this).find('input[type=submit]');
+		$submit.attr('disabled', 'disabled');
+		$('<i class="fas fa-spinner fa-spin"></i>').insertAfter($submit)
+
 		$.ajax({
 			url: getBaseUrl() + "/deposito?action=reponer",
 			data: $form,
-			dataType: 'json',
-			beforeSend: function(){
-				$(this).find('input[type=submit]').attr('disabled', 'disabled');
-			},
-			success : function(r){
-				console.log(r);
+			dataType: 'text',
+			success : function(r, textStatus, xhr){
+				showAlert('La reposici&oacute;n se ejecut&oacute; exitosamente!', 'success');
 			},
 			error: function (request, status, error) {
-		        console.log(request.responseText);
+				showAlert('Error: '+request.responseText, 'danger');
+		    },
+		    complete: function(){
+		    	$('.fa-spinner').remove();
+				$('#showItemReposicion').modal('hide');
 		    }
 		})
 	});
@@ -279,8 +284,8 @@ function removeItemFromCart(articleId) {
 			if (cantItems == 0) {
 				sessionStorage.clear();
 				$('#cart-link, #cart-link .badge').hide();
-				showAlert('Su carrito esta vacio! <a href="' + getBaseUrl()
-						+ '/catalogo/articulos.jsp">Volver al catalogo</a>',
+				showAlert('Su carrito est&aacute; vac&iacute;o! <a href="' + getBaseUrl()
+						+ '/catalogo/articulos.jsp">Volver al cat&aacute;logo</a>',
 						'danger');
 				$('#cart .btn-success').attr('disabled', 'disabled');
 			} else {
@@ -297,15 +302,10 @@ function removeItemFromCart(articleId) {
 }
 
 function showAlert(message, type) {
-	var alert = '<div class="alert alert-' + type
-			+ ' alert-dismissible fade show" role="alert">';
-	alert += '<span class="alert-message">' + message + '</span>';
-	alert += '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
-	alert += '<span aria-hidden="true">&times;</span>';
-	alert += '</button></div>';
-
-	$(alert).insertBefore('section > .title');
-
+	var $alert = $('<div class="alert alert-dismissible fade show" role="alert"><span class="alert-message"></span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+	$alert.addClass('alert-'+type);
+	$alert.find('.alert-message').html(message);
+	$alert.insertBefore('section > .title');
 }
 
 function getBaseUrl() {

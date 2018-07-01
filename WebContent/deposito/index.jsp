@@ -10,17 +10,20 @@
 			<li class="breadcrumb-item active" aria-current="page">Almacén</li>
 		</ol>
 	</nav>
-	<div class="d-flex">
+	<h2 class="title text-muted">Almacén Reposición</h2>
+	<!--div class="d-flex">
 		<div class="mr-auto p-2">
-			<h2 class="title text-muted">Almacén Reposición</h2>
+			
 		</div>
+
 		<div class="p-2">
 			<a class="btn btn-info float-right" href="#">Retirar artículo</a>
 		</div>
 		<div class="p-2">
 			<a class="btn btn-success float-right" href="<%=request.getContextPath()%>/deposito/almacenar.jsp">Almacenar artí­culo</a>
 		</div>
-	</div>
+		
+	</div-->
 	<div class="table-responsive">
 		<table class="table">
 			<thead class="thead-light">
@@ -29,7 +32,7 @@
 					<th scope="col" class="col-6">Artí­culo</th>
 					<th scope="col" class="col-1 text-center">Cantidad</th>
 					<th scope="col" class="col-2 text-center">Estado</th>
-					<th scope="col" class="col-1 text-center">Ver</th>
+					<th scope="col" class="col-1 text-center">Acción</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,8 +53,12 @@
 					<%}  %>
 					</td>
 					<td class="col-1 text-center">
-					<a class="item-open text-success" data-id="<%=item.getId()%>"
-						href="#"><i class="fas fa-eye"></i></a>
+					<%if(item.getEstado() == 'P'){ %>
+					<a class="item-open text-secondary" data-id="<%=item.getId()%>"
+						href="#"><i class="far fa-check-square fa-lg"></i></a>
+						<%}else{ %>
+						<span class="text-success"><i class="fas fa-check-square fa-lg"></i></span>
+						<%} %>
 						</td>
 				</tr>
 			<%
