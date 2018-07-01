@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col">
           <p>Si usted desea procesar manualmente las Órdenes de Compra que se encuentran en estado pendiente, seleccione la opción que se encuentra a continuación.</p>
-          <p><a id="procesarOC" href="#" class="btn btn-primary">Procesar Órdenes de Compra Pendientes</a></p>
+          <p><a id="procesarOC" href="<%=request.getContextPath()%>/compras?action=procesar-ocs" class="btn btn-primary">Procesar Órdenes de Compra Pendientes</a></p>
         </div>
       </div>
     </section>
