@@ -1,4 +1,6 @@
 <!doctype html>
+<%@page import="edu.uade.apd.tpo.repository.dto.RolDTO"%>
+<%@page import="edu.uade.apd.tpo.repository.dto.UsuarioDTO"%>
 <html class="no-js" lang="es">
 
 <head>
@@ -37,6 +39,7 @@
             <a class="nav-link" href="<%= request.getContextPath() %>/catalogo/articulos.jsp">Catálogo</a>
           </li>
         <% } else { %>
+        <% if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.COMPRAS || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
           <!-- menu administradores -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarCompras" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,6 +50,7 @@
               <a class="dropdown-item" href="<%= request.getContextPath() %>/compras/procesar.jsp">Procesar Pendientes</a>
             </div>
           </li>
+          <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDeposito" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Depósito
@@ -61,6 +65,7 @@
               <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/ingresaroc.jsp">Ingresar Órden de Compra</a>
             </div>
           </li>
+          <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.DESPACHO || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDespacho" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Despacho
@@ -72,6 +77,7 @@
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
+          <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.FACTURACION || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarFacturacion" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Facturación
@@ -84,11 +90,12 @@
             </div>
           </li>
           <% } %>
+          <% } %>
           <!-- /menu administradores-->
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-          <% if(request.getSession().getAttribute("cliente") == null) { %>
+          <% if(request.getSession().getAttribute("cliente") == null && request.getSession().getAttribute("usuario") == null) { %>
             <a class="nav-link" href="<%= request.getContextPath() %>/admin/login.jsp"><span class="d-md-none">Ingresar</span><i class="fas fa-user-circle fa-2x d-none d-md-block"></i></a>
           <% } else { %>
           <a class="nav-link" href="<%= request.getContextPath() %>/administracion?action=logout"><span class="d-md-none">Cerrar Sesión</span><i class="fas fa-sign-out-alt fa-2x d-none d-md-block""></i></a>
