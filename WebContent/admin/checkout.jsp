@@ -5,8 +5,8 @@
 
 <section id="checkout">
 	<h2 class="title">Su pedido</h2>
-	<form id="checkout-form" method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/pedidos" class="needs-validation" novalidate="">
-		<input type="hidden" name="action" value="crear-pedido">
+	<form id="checkout-form" method="post" action="<%=request.getContextPath()%>/pedidos" class="needs-validation" novalidate="">
+		<input type="hidden" name="action" value="crear-pedido"/>
 		<div class="row">
 			<div class="col-md-4 order-md-2 mb-4">
 				<h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -22,7 +22,7 @@
 
 
 				<div class="mb-3">
-					<label for="address">Calle y número</label> <input type="text"
+					<label for="address">Calle y número</label> <input type="text" name="calle"
 						class="form-control" id="address"
 						placeholder="Calle Principal 123" required="">
 					<div class="invalid-feedback">Por favor, indique su dirección
@@ -31,13 +31,13 @@
 
 				<div class="mb-3">
 					<label for="address2">Piso y Departamento <span
-						class="text-muted">(Opcional)</span></label> <input type="text"
+						class="text-muted">(Opcional)</span></label> <input type="text" name="numero"
 						class="form-control" id="address2" placeholder="20 H">
 				</div>
 
 				<div class="row">
 					<div class="col-md-5 mb-3">
-						<label for="country">Provincia</label> <select
+						<label for="country">Provincia</label> <select name="provincia"
 							class="custom-select d-block w-100" id="country" required="">
 							<option value="">Seleccione...</option>
 							<option>Ciudad Autónoma de Buenos Aires</option>
@@ -46,7 +46,7 @@
 							provincia válida.</div>
 					</div>
 					<div class="col-md-4 mb-3">
-						<label for="state">Ciudad</label> <select
+						<label for="state">Ciudad</label> <select name="ciudad"
 							class="custom-select d-block w-100" id="state" required="">
 							<option value="">Seleccione...</option>
 							<option>Ciudad Autónoma de Buenos Aires</option>
@@ -55,15 +55,13 @@
 							ciudad válida.</div>
 					</div>
 					<div class="col-md-3 mb-3">
-						<label for="zip">Código Postal</label> <input type="text"
+						<label for="zip">Código Postal</label> <input type="text" name="codigoPostal"
 							class="form-control" id="zip" placeholder="" required="">
 						<div class="invalid-feedback">El código postal es requerido.</div>
 					</div>
 				</div>
 				<hr class="mb-4">
-				<button class="btn btn-primary btn-lg btn-block" type="submit">Confirmar
-					pedido</button>
-
+				<input class="btn btn-primary btn-lg btn-block" type="submit" value="Confirmar pedido"/>
 			</div>
 		</div>
 	</form>

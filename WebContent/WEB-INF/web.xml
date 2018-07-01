@@ -38,7 +38,7 @@
 		<description></description>
 		<display-name>Pedidos</display-name>
 		<servlet-name>pedidos</servlet-name>
-		<servlet-class>edu.uade.apd.tpo.web.servlet.AdministracionServlet</servlet-class>
+		<servlet-class>edu.uade.apd.tpo.web.servlet.PedidosServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>pedidos</servlet-name>
