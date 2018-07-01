@@ -85,7 +85,9 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+          <% if(request.getSession().getAttribute("cliente") == null) { %>
             <a class="nav-link" href="<%= request.getContextPath() %>/admin/login.jsp"><span class="d-md-none">Ingresar</span><i class="fas fa-user-circle fa-2x d-none d-md-block"></i></a>
+          <% } %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= request.getContextPath() %>/admin/cart.jsp"><span class="d-md-none">Carrito</span><i class="fas fa-shopping-cart fa-2x d-none d-md-block"></i></a>

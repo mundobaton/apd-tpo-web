@@ -24,4 +24,14 @@
 		<servlet-name>articulos</servlet-name>
 		<url-pattern>/articulos</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>Administracion</display-name>
+		<servlet-name>administracion</servlet-name>
+		<servlet-class>edu.uade.apd.tpo.web.servlet.AdministracionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>administracion</servlet-name>
+		<url-pattern>/administracion</url-pattern>
+	</servlet-mapping>
 </web-app>
