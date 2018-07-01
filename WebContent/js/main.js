@@ -1,8 +1,11 @@
 $(function() {
 
 	if (typeof (Storage) !== "undefined") {
+		$cartLink = $('#cart-link');
 		if (!sessionStorage.dvlCart) {
-			$('#cart-link').hide();
+			$cartLink.hide();
+		} else {
+			$cartLink.show();
 		}
 	}
 
@@ -56,8 +59,7 @@ $(function() {
 	$('#removeConfirm').on('click', function(e) {
 		e.preventDefault();
 		var $this = $(e.target);
-		// TODO Actualizar el total del carrito cuando se elimina un elemento.-
-		$('#cart').find("#aid-" + $this.data('aid')).remove();
+		-$('#cart').find("#aid-" + $this.data('aid')).remove();
 		removeItemFromCart(parseInt($this.data('aid')));
 		$('#removeFromCart').modal('hide');
 	});
@@ -94,6 +96,7 @@ $(function() {
 					}
 				}
 				$('#cart-subtotal').text(subtotal.toFixed(2));
+				$('#cart .btn-success').removeAttr('disabled');
 			}
 		}
 	}
@@ -138,9 +141,14 @@ $(function() {
 		if (typeof (Storage) !== "undefined") {
 			if (sessionStorage.dvlCart) {
 				sessionStorage.clear();
+				$('#cart-link').hide();
 			}
 		}
 	}
+
+	$('#checkout-form').on('submit', function() {
+		$(this).find('input[type=submit]').attr('disabled', 'disabled');
+	})
 
 });
 
@@ -185,21 +193,32 @@ function removeItemFromCart(articleId) {
 		if (sessionStorage.dvlCart) {
 			var oldCart = JSON.parse(sessionStorage.dvlCart);
 			var subtotal = 0;
+			var cantItems = 0;
 			for (var i = 0; i < oldCart.length; i++) {
 				if (oldCart[i]) {
 					if (oldCart[i].aid == articleId) {
 						delete oldCart[i];
 					} else {
 						subtotal += (oldCart[i].precio * oldCart[i].cant);
+						cantItems++;
 					}
 				}
 			}
-			sessionStorage.setItem("dvlCart", JSON.stringify(oldCart));
+			
 			$('#cart-subtotal').text(subtotal.toFixed(2));
+			
+			if (cantItems == 0) {
+				sessionStorage.clear();
+				showAlert('Su carrito esta vacio! <a href="' + getBaseUrl()
+						+ '/catalogo/articulos.jsp">Volver al catalogo</a>', 'danger');
+				$('#cart .btn-success').attr('disabled', 'disabled');
+			} else {
+				sessionStorage.setItem("dvlCart", JSON.stringify(oldCart));
+				
+				var carrito = JSON.parse(sessionStorage.dvlCart);
+				console.log(carrito);
+			}
 		}
-
-		var carrito = JSON.parse(sessionStorage.dvlCart);
-		console.log(carrito);
 
 	} else {
 		console.log("Sin soporte para session storage");
@@ -207,7 +226,8 @@ function removeItemFromCart(articleId) {
 }
 
 function showAlert(message, type) {
-	var alert = '<div class="alert alert-'+type+' alert-dismissible fade show" role="alert">';
+	var alert = '<div class="alert alert-' + type
+			+ ' alert-dismissible fade show" role="alert">';
 	alert += '<span class="alert-message">' + message + '</span>';
 	alert += '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
 	alert += '<span aria-hidden="true">&times;</span>';

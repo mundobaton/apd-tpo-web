@@ -4,8 +4,7 @@
 
 <section id="cart">
 	<h2 class="title">Su carrito</h2>
-	<form action="confirmCart.jsp" method="post"
-		enctype="multipart/form-data" class="row">
+	<div class="row">
 		<div class="table-responsive">
 			<table class="table">
 				<tfoot>
@@ -28,7 +27,7 @@
 				</tbody>
 			</table>
 		</div>
-	</form>
+	</div>
 	<hr class="mb-4">
 	<div class="d-flex justify-content-end">
 		<div class="p-2">
@@ -36,9 +35,9 @@
 				href="<%=request.getContextPath()%>/catalogo/articulos.jsp">Seguir comprando</a>
 		</div>
 		<div class="p-2">
-			<a class="btn btn-success"
+			<button class="btn btn-success" disabled="disabled"
 				href="<%=request.getContextPath()%>/admin/checkout.jsp">Continuar
-				al checkout</a>
+				al checkout</button>
 		</div>
 	</div>
 

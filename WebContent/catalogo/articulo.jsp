@@ -89,10 +89,10 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 				 <% if(request.getSession().getAttribute("cliente") != null) { %>
-						<input type="submit" class="btn btn-primary" id="addItemToCartBtn" value="Agregar" />
-						<%} else { %>
-						<a href="<%= request.getContextPath() %>/admin/login.jsp" class="btn btn-info">Inicie sesión para comprar</a>
-						<% } %>
+				<input type="submit" class="btn btn-primary" id="addItemToCartBtn" value="Agregar" />
+				<%} else { %>
+				<a href="<%= request.getContextPath() %>/admin/login.jsp" class="btn btn-info">Inicie sesión para comprar</a>
+				<% } %>
 			</div>
 		</div>
 	</form>
