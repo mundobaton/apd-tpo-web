@@ -27,7 +27,7 @@
 					<a class="btn btn-secondary"
 						href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"><i
 						class="fas fa-eye"></i></a> <a class="btn btn-success" href="#"
-						data-aid="1" data-toggle="modal" data-target="#addToCart"
+						data-aid="<%=art.getId()%>" data-toggle="modal" data-target="#addToCart"
 						role="button">Comprar</a>
 				</div>
 			</div>

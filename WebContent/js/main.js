@@ -8,8 +8,8 @@ $(function() {
 				var btn = $(e.relatedTarget);
 				$('#addToCart h3').text(
 						btn.parents(".article").find(".article-title").text());
-				$('#addToCart p').text(
-						btn.parents(".article").find(".description").text());
+				$('#addToCart p').html(
+						btn.parents(".article").find(".description").html());
 				$('#aid').val(btn.data('aid'));
 			});
 	$('#addToCart').on('hide.bs.modal', function(e) {

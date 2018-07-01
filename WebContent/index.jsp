@@ -8,7 +8,7 @@
 		<div class="container">
 			<h1 class="display-4">¡Bienvenidos!</h1>
 			<p class="lead">
-				En Das Verrúckte Lagerhaus usted podrá encontrar todos los
+				En Das Verrückte Lagerhaus usted podrá encontrar todos los
 				artí­culos que necesita para satisfacer las necesidades de su
 				empresa.<br /> <a href="<%=request.getContextPath()%>/login.jsp">Inicie
 					sesión</a> con su usuario, realice su pedido y pronto lo estará
@@ -31,20 +31,28 @@
 <section id="articles-home">
 	<h2 class="title">Novedades</h2>
 	<div class="row">
-	<% List<ArticuloDTO> articulos = DepositoDelegate.getInstance().getArticulos(); 
-	for(ArticuloDTO art : articulos){
-	%>
+		<%
+			List<ArticuloDTO> articulos = DepositoDelegate.getInstance().getArticulos();
+			for (ArticuloDTO art : articulos) {
+		%>
 		<div class="col-xs-12 col-sm-6 col-lg-3">
 			<h3 class="article-title"><%=art.getNombre()%></h3>
-			<p class="description"><%=art.getCodigoBarras()%></p>
-			<p class="price-tag">$<%=art.getPrecio()%></p>
+			<p class="description">
+				<%=art.getPresentacion()%> de tamaño <%=art.getTamano()%><br/>
+				<small class="text-muted">Código #<%=art.getCodigoBarras()%></small>
+
+			</p>
+			<p class="price-tag">
+				$<%=art.getPrecio()%></p>
 			<p>
 				<a class="btn btn-secondary"
 					href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"
 					role="button">Ver más »</a>
 			</p>
 		</div>
-		<%}%>
+		<%
+			}
+		%>
 	</div>
 	<hr>
 	<div class="d-flex flex-row-reverse">
