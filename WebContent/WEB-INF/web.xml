@@ -54,4 +54,14 @@
 		<servlet-name>compras</servlet-name>
 		<url-pattern>/compras</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>Deposito</display-name>
+		<servlet-name>deposito</servlet-name>
+		<servlet-class>edu.uade.apd.tpo.web.servlet.DepositoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deposito</servlet-name>
+		<url-pattern>/deposito</url-pattern>
+	</servlet-mapping>
 </web-app>
