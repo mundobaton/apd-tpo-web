@@ -26,6 +26,7 @@ $(function() {
 			cant : parseInt($('input[name=cantidad]').val()),
 		}
 		addItemToCart(item);
+		$('#addToCart').modal('hide');
 	})
 
 	$('#removeFromCart').on(
