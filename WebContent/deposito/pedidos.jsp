@@ -29,7 +29,7 @@
 					<td class="item-consumer">Juan Pérez</td>
 
 					<td class="text-center"><a class="item-open text-success"
-						href="/deposito/pedido.jsp?pid=1"><i class="fas fa-eye"></i></a></td>
+						href="<%=request.getContextPath()%>/deposito/pedido.jsp?pid=1"><i class="fas fa-eye"></i></a></td>
 				</tr>
 				<tr class="cart-item">
 					<td class="item-id">2</td>
@@ -39,7 +39,7 @@
 					<td class="item-consumer">Roberta Gómez</td>
 
 					<td class="text-center"><a class="item-open text-success"
-						href="/deposito/pedido.jsp?pid=2"><i class="fas fa-eye"></i></a></td>
+						href="<%=request.getContextPath()%>/deposito/pedido.jsp?pid=2"><i class="fas fa-eye"></i></a></td>
 				</tr>
 			</tbody>
 		</table>

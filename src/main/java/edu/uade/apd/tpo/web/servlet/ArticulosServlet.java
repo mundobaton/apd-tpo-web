@@ -34,12 +34,21 @@ public class ArticulosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String action = req.getParameter("action");
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		
 		if (action.equals("list")) {
-			resp.setContentType("application/json");
-			resp.setCharacterEncoding("UTF-8");
 			resp.getWriter().write(this.getArticulos());
 		}
+		if(action.equals("view") && req.getParameter("aid").length() > 0) {
+			resp.getWriter().write(this.getArticuloById(Long.parseLong(req.getParameter("aid"))));
+		}
 		
+	}
+	
+	private String getArticuloById(Long articuloId) throws RemoteBusinessException{
+		ArticuloDTO articulo = delegate.findArticuloById(articuloId);
+		return gson.toJson(articulo);
 	}
 
 	private String getArticulos() throws RemoteBusinessException {

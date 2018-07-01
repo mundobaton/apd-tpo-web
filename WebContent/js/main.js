@@ -153,6 +153,18 @@ $(function() {
 	$('#checkout-form').on('submit', function() {
 		$(this).find('input[type=submit]').attr('disabled', 'disabled');
 	})
+	
+	$('#article-ajax').on('click', function(e){
+		e.preventDefault();
+		var $id = $(this).data('aid');
+		$.ajax({
+			url: getBaseUrl() + "/articulos?action=view&aid="+ $id,
+			dataType: 'json',
+			success : function(r){
+				console.log(r);
+			}
+		});
+	})
 
 });
 

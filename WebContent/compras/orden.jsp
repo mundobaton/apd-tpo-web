@@ -23,9 +23,9 @@
 	%>
 	<ul class="list-group">
 		<li class="list-group-item"><strong>Fecha: </strong><%=oc.getFechaCreacion()%></li>
-		<li class="list-group-item"><strong>Artí­culo: </strong><a
+		<li class="list-group-item"><strong>Artí­culo: </strong><a id="article-ajax"
 			href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=oc.getItem().getArticulo().getId()%>"
-			target="_blank"><%=oc.getItem().getArticulo().getNombre()%></a></li>
+			data-aid="<%=oc.getItem().getArticulo().getId()%>" target="_blank"><%=oc.getItem().getArticulo().getNombre()%></a></li>
 		<li class="list-group-item"><strong>Cantidad: </strong><%=oc.getItem().getArticulo().getCantCompra()%></li>
 		<li class="list-group-item"><strong>Proveedor: </strong>{proveedor}</li>
 		<li class="list-group-item"><strong>ID pedido origen: </strong><%=oc.getPedido().getId()%></li>
@@ -53,7 +53,25 @@
 				Órden de Compra</a>
 		</div>
 	</div>
-
 </section>
+<!-- Modal -->
+<div class="modal fade" id="showArticle" tabindex="-1" role="dialog" aria-labelledby=""showArticleTitle"" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="showArticleTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </main>
 <jsp:include page="../includes/footer.jsp" />
