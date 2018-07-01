@@ -76,7 +76,7 @@
 	<hr />
 	<div class="d-flex justify-content-end">
 		<a class="btn btn-secondary mr-3" href="<%=request.getContextPath()%>/despacho/index.jsp">Volver al listado</a> 
-		<a class="btn btn-primary" href="<%=request.getContextPath()%>/despacho?pid=<%=pedido.getId()%>">Despachar Pedido</a>
+		<a class="btn btn-primary" href="<%=request.getContextPath()%>/despacho?action=despachar&pid=<%=pedido.getId()%>">Despachar Pedido</a>
 	</div>
 	<%} %>
 </section>
