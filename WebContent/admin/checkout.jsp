@@ -5,7 +5,8 @@
 
 <section id="checkout">
 	<h2 class="title">Su pedido</h2>
-	<form id="checkout-form" method="post" enctype="multipart/form-data" action="?" class="needs-validation" novalidate="">
+	<form id="checkout-form" method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/pedidos" class="needs-validation" novalidate="">
+		<input type="hidden" name="action" value="crear-pedido">
 		<div class="row">
 			<div class="col-md-4 order-md-2 mb-4">
 				<h4 class="d-flex justify-content-between align-items-center mb-3">
