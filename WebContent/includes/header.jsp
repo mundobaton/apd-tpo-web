@@ -56,13 +56,7 @@
               Depósito
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDeposito">
-              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/index.jsp">Almacén</a>
-              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/almacenar.jsp">Almacenar artí­culo</a>
-              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/retirar.jsp">Retirar artículo</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/pedidos.jsp">Pedidos a Completar</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/ingresaroc.jsp">Ingresar Órden de Compra</a>
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/index.jsp">Almacén Reposición</a>
             </div>
           </li>
           <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.DESPACHO || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
