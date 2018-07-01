@@ -29,12 +29,14 @@
 
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav mr-auto">
+        <% if(request.getSession().getAttribute("cliente") != null) { %>
           <li class="nav-item active">
             <a class="nav-link" href="<%= request.getContextPath() %>/index.jsp">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= request.getContextPath() %>/catalogo/articulos.jsp">Catálogo</a>
           </li>
+        <% } %>
           <!-- menu administradores -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarCompras" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

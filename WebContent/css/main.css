@@ -141,7 +141,9 @@ footer hr{
 .form-signin{
     padding: 2rem 0;
 }
-
+.article-content{
+	background-color: rgba(255,255,255,0.5);
+}
 
 /* ==========================================================================
    Helper classes

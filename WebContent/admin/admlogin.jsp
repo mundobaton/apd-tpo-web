@@ -14,9 +14,9 @@
 					placeholder="Legajo" required autofocus>
 			</div>
 			<div class="form-group">
-				<label for="inputPassword" class="sr-only">Password</label> <input
+				<label for="inputPassword" class="sr-only">Contraseña</label> <input
 					type="password" id="inputPassword" class="form-control"
-					placeholder="ContraseÃ±a" required>
+					placeholder="Contraseña" required>
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
 		</form>
