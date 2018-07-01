@@ -39,15 +39,15 @@
 
 		</div>
 		<div class="col-md-8 order-md-1">
-			<h4 class="mb-3">Direcci贸n de env铆o</h4>
+			<h4 class="mb-3">Direcci髇 de env憝o</h4>
 			<form class="needs-validation" novalidate="">
 
 				<div class="mb-3">
-					<label for="address">Calle y n煤mero</label> <input type="text"
+					<label for="address">Calle y n鷐ero</label> <input type="text"
 						class="form-control" id="address"
 						placeholder="Calle Principal 123" required="">
 					<div class="invalid-feedback">Por favor, indique su
-						direcci贸n de env铆o.</div>
+						direcci髇 de env憝o.</div>
 				</div>
 
 				<div class="mb-3">
@@ -61,24 +61,24 @@
 						<label for="country">Provincia</label> <select
 							class="custom-select d-block w-100" id="country" required="">
 							<option value="">Seleccione...</option>
-							<option>Ciudad Aut贸noma de Buenos Aires</option>
+							<option>Ciudad Aut髇oma de Buenos Aires</option>
 						</select>
 						<div class="invalid-feedback">Por favor, seleccione una
-							provincia v谩lida.</div>
+							provincia v醠ida.</div>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="state">Ciudad</label> <select
 							class="custom-select d-block w-100" id="state" required="">
 							<option value="">Seleccione...</option>
-							<option>Ciudad Aut贸noma de Buenos Aires</option>
+							<option>Ciudad Aut髇oma de Buenos Aires</option>
 						</select>
 						<div class="invalid-feedback">Por favor, seleccione una
-							ciudad v谩lida.</div>
+							ciudad v醠ida.</div>
 					</div>
 					<div class="col-md-3 mb-3">
-						<label for="zip">C贸digo Postal</label> <input type="text"
+						<label for="zip">C骴igo Postal</label> <input type="text"
 							class="form-control" id="zip" placeholder="" required="">
-						<div class="invalid-feedback">El c贸digo postal es
+						<div class="invalid-feedback">El c骴igo postal es
 							requerido.</div>
 					</div>
 				</div>
