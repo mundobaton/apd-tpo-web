@@ -65,10 +65,18 @@
         </button>
       </div>
       <div class="modal-body">
-        
+        <ul class="list-group">
+			<li class="list-group-item"><strong>Nombre: </strong><span class="article-title"></span></li>
+			<li class="list-group-item"><strong>Código de barras: </strong><span class="article-codigo"></span></li>
+			<li class="list-group-item"><strong>Presentación: </strong><span class="article-presentacion"></span></li>
+			<li class="list-group-item"><strong>Tamaño: </strong><span class="article-tamano"></span></li>
+			<li class="list-group-item"><strong>Precio: </strong><span class="price-tag">$<span></span></span></li>
+			<li class="list-group-item"><strong>Unidad: </strong><span class="article-unidad"></span></li>
+			<li class="list-group-item"><strong>Cantidad de compra: </strong><span class="article-compra"></span></li>
+		</ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

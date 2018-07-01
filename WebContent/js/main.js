@@ -161,7 +161,20 @@ $(function() {
 			url: getBaseUrl() + "/articulos?action=view&aid="+ $id,
 			dataType: 'json',
 			success : function(r){
-				console.log(r);
+				//console.log(r);
+				var $modal = $('#showArticle');
+				$modal.find('#showArticleTitle').text('Articulo #'+r.id);
+				$modal.find('.article-title').text(r.nombre);
+				$modal.find('.article-codigo').text(r.codigoBarras);
+				$modal.find('.article-presentacion').text(r.presentacion);
+				$modal.find('.article-tamano').text(r.tamano);
+				$modal.find('.price-tag > span').text(r.precio.toFixed(2));
+				$modal.find('.article-unidad').text(r.unidad);
+				$modal.find('.article-compra').text(r.cantCompra);
+				$modal.modal('show');
+			},
+			error : function(){
+				
 			}
 		});
 	})

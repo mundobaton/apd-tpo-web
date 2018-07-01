@@ -25,19 +25,21 @@
 			<tbody>
 				<%
 					List<OrdenCompraDTO> ocs = ComprasDelegate.getInstance().obtenerOrdenesCompra();
-					for (OrdenCompraDTO oc : ocs) {
-						/*
-						*/
+					if (ocs != null) {
+						for (OrdenCompraDTO oc : ocs) {
 				%>
 				<tr class="d-flex cart-item">
 					<td class="col-1 item-id"><%=oc.getId()%></td>
 					<td class="col-8 item-article"><%=oc.getItem().getArticulo().getNombre()%></td>
 					<td class="col-2 item-status text-center">
-					<%if(oc.getEstado() == 'P') {%>
-					<span class="badge badge-pill badge-warning">Pendiente</span>
-					<%} else if(oc.getEstado() == 'C') {%>
-					<span class="badge badge-pill badge-success">Completa</span>
-					<%}  %>
+						<%
+							if (oc.getEstado() == 'P') {
+						%> <span class="badge badge-pill badge-warning">Pendiente</span>
+						<%
+							} else if (oc.getEstado() == 'C') {
+						%> <span class="badge badge-pill badge-success">Completa</span> <%
+ 	}
+ %>
 					</td>
 					<td class="col-1 text-center"><a
 						class="item-open text-success"
@@ -45,6 +47,7 @@
 							class="fas fa-eye"></i></a></td>
 				</tr>
 				<%
+					}
 					}
 				%>
 			</tbody>
