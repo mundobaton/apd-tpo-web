@@ -99,11 +99,13 @@
             <a class="nav-link" href="<%= request.getContextPath() %>/admin/login.jsp"><span class="d-md-none">Ingresar</span><i class="fas fa-user-circle fa-2x d-none d-md-block"></i></a>
           <% } else { %>
           <a class="nav-link" href="<%= request.getContextPath() %>/administracion?action=logout"><span class="d-md-none">Cerrar Sesión</span><i class="fas fa-sign-out-alt fa-2x d-none d-md-block""></i></a>
-          <%} %>
+          <% } %>
           </li>
+          <% if(request.getSession().getAttribute("cliente") != null) { %>
           <li class="nav-item">
             <a class="nav-link" href="<%= request.getContextPath() %>/admin/cart.jsp"><span class="d-md-none">Carrito</span><i class="fas fa-shopping-cart fa-2x d-none d-md-block"></i></a>
           </li>
+          <% } %>
         </ul>
       </div>
     </nav>
