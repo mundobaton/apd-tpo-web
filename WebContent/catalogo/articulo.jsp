@@ -18,16 +18,19 @@
 			</li>
 		</ol>
 	</nav>
+	<h2 class="title text-muted">
+		Artículo #<span class="oc-id"><%=art.getId()%></span>
+	</h2>
 	<div class="article">
-		<h2 class="title text-muted">
-			Artículo #<span class="oc-id"><%=art.getId()%></span>
-		</h2>
+
 		<ul class="list-group">
-			<li class="list-group-item"><strong>Nombre: </strong><span class="article-title"><%=art.getNombre()%></span></li>
+			<li class="list-group-item"><strong>Nombre: </strong><span
+				class="article-title"><%=art.getNombre()%></span></li>
 			<li class="list-group-item"><strong>Código de barras: </strong><%=art.getCodigoBarras()%></li>
 			<li class="list-group-item"><strong>Presentación: </strong><%=art.getPresentacion()%></li>
 			<li class="list-group-item"><strong>Tamaño: </strong><%=art.getTamano()%></li>
-			<li class="list-group-item"><strong>Precio: </strong><span class="price-tag">$<span><%=art.getPrecio()%></span></span></li>
+			<li class="list-group-item"><strong>Precio: </strong><span
+				class="price-tag">$<span><%=art.getPrecio()%></span></span></li>
 			<li class="list-group-item"><strong>Unidad: </strong><%=art.getUnidad()%></li>
 		</ul>
 		<hr />
@@ -66,7 +69,10 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12">
-							<p>¿Qué cantidad de <span class="article-title"></span> desea agregar al carrito?</p>
+							<p>
+								¿Qué cantidad de <span class="article-title"></span> desea
+								agregar al carrito?
+							</p>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -82,8 +88,11 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-				<input type="submit" class="btn btn-primary" id="addItemToCartBtn"
-					value="Agregar" />
+				 <% if(request.getSession().getAttribute("cliente") != null) { %>
+						<input type="submit" class="btn btn-primary" id="addItemToCartBtn" value="Agregar" />
+						<%} else { %>
+						<a href="<%= request.getContextPath() %>/admin/login.jsp" class="btn btn-info">Inicie sesión para comprar</a>
+						<% } %>
 			</div>
 		</div>
 	</form>

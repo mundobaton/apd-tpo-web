@@ -26,7 +26,8 @@
 				<div class="d-flex justify-content-between">
 					<a class="btn btn-secondary"
 						href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"><i
-						class="fas fa-eye"></i></a> <a class="btn btn-success" href="#"
+						class="fas fa-eye"></i></a> 
+						<a class="btn btn-success" href="#"
 						data-aid="<%=art.getId()%>" data-toggle="modal"
 						data-target="#addToCart" role="button">Comprar</a>
 				</div>
@@ -77,8 +78,11 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-				<input type="submit" class="btn btn-primary" id="addItemToCartBtn"
-					value="Agregar" />
+				 <% if(request.getSession().getAttribute("cliente") != null) { %>
+						<input type="submit" class="btn btn-primary" id="addItemToCartBtn" value="Agregar" />
+						<%} else { %>
+						<a href="<%= request.getContextPath() %>/admin/login.jsp" class="btn btn-info">Inicie sesión para comprar</a>
+						<% } %>
 			</div>
 		</div>
 	</form>

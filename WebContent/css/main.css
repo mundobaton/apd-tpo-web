@@ -114,10 +114,6 @@ a, a:hover {
     font-weight: 400;
 }
 
-.price-tag{
-    font-size: 1.8rem;
-}
-
 section{
     margin-bottom: 2.5rem;
 }
@@ -143,6 +139,11 @@ footer hr{
 }
 .article-content{
 	background-color: rgba(255,255,255,0.5);
+}
+
+#articles-home .price-tag,
+.article-content .price-tag{
+    font-size: 1.8rem;
 }
 
 /* ==========================================================================

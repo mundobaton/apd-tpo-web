@@ -18,7 +18,7 @@
 		Orden de Compra #<span class="oc-id"><%=request.getParameter("oid")%></span>
 	</h2>
 	<%
-		OrdenCompraDTO oc = ComprasDelegate.getInstance().obtenerPorId(request.getParameter("oid"));
+		OrdenCompraDTO oc = ComprasDelegate.getInstance().obtenerPorId(Long.parseLong(request.getParameter("oid")));
 		if (oc != null) {
 	%>
 	<ul class="list-group">

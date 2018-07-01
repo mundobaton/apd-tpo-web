@@ -170,7 +170,7 @@ function addItemToCart(cartItem) {
 			sessionStorage.setItem("dvlCart", JSON.stringify(items));
 		}
 		showAlert('Su carrito ha sido actualizado! <a href="' + getBaseUrl()
-				+ '/admin/cart.jsp">Ver carrito</a>');
+				+ '/admin/cart.jsp">Ver carrito</a>', 'success');
 		var carrito = JSON.parse(sessionStorage.dvlCart);
 		console.log(carrito);
 
@@ -206,8 +206,8 @@ function removeItemFromCart(articleId) {
 	}
 }
 
-function showAlert(message) {
-	var alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">';
+function showAlert(message, type) {
+	var alert = '<div class="alert alert-'+type+' alert-dismissible fade show" role="alert">';
 	alert += '<span class="alert-message">' + message + '</span>';
 	alert += '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
 	alert += '<span aria-hidden="true">&times;</span>';
