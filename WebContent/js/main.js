@@ -22,8 +22,8 @@ $(function() {
 	$('#addItemToCart').on('submit', function(e) {
 		e.preventDefault();
 		var item = {
-			aid : $('input[name=aid]').val(),
-			cant : $('input[name=cantidad]').val(),
+			aid : parseInt($('input[name=aid]').val()),
+			cant : parseInt($('input[name=cantidad]').val()),
 		}
 		addItemToCart(item);
 	})
