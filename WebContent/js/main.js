@@ -121,6 +121,14 @@ $(function() {
 			}
 		}
 	}
+	
+	if ($('#congrats').length > 0) {
+		if (typeof (Storage) !== "undefined") {
+			if (sessionStorage.dvlCart) {
+				sessionStorage.clear();
+			}
+		}
+	}
 
 });
 
