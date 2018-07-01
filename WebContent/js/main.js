@@ -106,7 +106,7 @@ $(function() {
 						fila += '<div><h6 class="my-0">'+$cart[i].nombre+'</h6>';
 						fila += '<small class="text-muted">Cantidad: <span class="quantity">'+$cart[i].cant+'</span></small>';
 						fila += '</div> <span class="text-muted">'+$cart[i].precio.toFixed(2)+'</span>';
-						fila += '<input type="hidden" name="articulos['+cantItems+']" value="'+$cart[i].aid+','+$cart[i].cant+'"/>';					
+						fila += '<input type="hidden" name="articulos[]" value="'+$cart[i].aid+','+$cart[i].cant+'"/>';					
 						fila += '</li>';
 						subtotal += ($cart[i].precio * $cart[i].cant);
 						miniCart.append(fila);
