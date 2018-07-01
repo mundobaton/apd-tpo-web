@@ -156,6 +156,15 @@ $(function() {
 	
 	$('#deposito .item-open').on('click', function(e){
 		e.preventDefault();
+		var $modal = $('#showItemReposicion');
+		var $this = $(this);
+		var $id = $this.data('id');
+		
+		$modal.find('.article-title').text($this.parents('tr').find('.item-article').text());
+		$modal.find('input[name=cantidad]').val($this.parents('tr').find('.item-quantity').text());
+		
+		$modal.modal('show');
+		
 		
 	});
 	

@@ -62,5 +62,32 @@
 		</table>
 	</div>
 </section>
+<!-- Modal -->
+<div class="modal fade" id="showItemReposicion" tabindex="-1" role="dialog"
+	aria-labelledby="showItemReposicionTitle" aria-hidden="true">
+	<form class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="showItemReposicionTitle">Reponer <span class="article-title"></span></h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Cerrar">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+			<div class="form-group">
+			<label for="cantidad">Seleccione la cantidad de <span class="article-title text-muted"></span> a reponer:</label>
+			<input class="form-control" name="cantidad" type="number" step="1" min="1" value="1"/>
+			<input type="hidden" name="repoId" value=""/>
+			<input type="hidden" name="articuloId" value=""/>
+			</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				<input type="submit" class="btn btn-primary" value="Guardar"/>
+			</div>
+		</div>
+	</form>
+</div>
 </main>
 <jsp:include page="../includes/footer.jsp" />
