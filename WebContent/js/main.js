@@ -158,14 +158,30 @@ $(function() {
 		e.preventDefault();
 		var $modal = $('#showItemReposicion');
 		var $this = $(this);
-		var $id = $this.data('id');
-		
+		var $id = $this.data('id');		
 		$modal.find('.article-title').text($this.parents('tr').find('.item-article').text());
-		$modal.find('input[name=cantidad]').val($this.parents('tr').find('.item-quantity').text());
-		
+		$modal.find('input[name=cant]').val($this.parents('tr').find('.item-quantity').text());
+		$modal.find('input[name=repoId]').val($id);
 		$modal.modal('show');
-		
-		
+	});
+	
+	$('#reponerItemForm').on('submit', function(e){
+		e.preventDefault();
+		var $form = $(this).serialize();
+		$.ajax({
+			url: getBaseUrl() + "/deposito?action=reponer",
+			data: $form,
+			dataType: 'json',
+			beforeSend: function(){
+				$(this).find('input[type=submit]').attr('disabled', 'disabled');
+			},
+			success : function(r){
+				console.log(r);
+			},
+			error: function (request, status, error) {
+		        console.log(request.responseText);
+		    }
+		})
 	});
 	
 	$('#article-ajax').on('click', function(e){

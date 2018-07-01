@@ -65,7 +65,7 @@
 <!-- Modal -->
 <div class="modal fade" id="showItemReposicion" tabindex="-1" role="dialog"
 	aria-labelledby="showItemReposicionTitle" aria-hidden="true">
-	<form class="modal-dialog" role="document">
+	<form id="reponerItemForm" method="post" action="?" class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="showItemReposicionTitle">Reponer <span class="article-title"></span></h5>
@@ -77,9 +77,8 @@
 			<div class="modal-body">
 			<div class="form-group">
 			<label for="cantidad">Seleccione la cantidad de <span class="article-title text-muted"></span> a reponer:</label>
-			<input class="form-control" name="cantidad" type="number" step="1" min="1" value="1"/>
+			<input class="form-control" name="cant" type="number" step="1" min="1" value="1"/>
 			<input type="hidden" name="repoId" value=""/>
-			<input type="hidden" name="articuloId" value=""/>
 			</div>
 			</div>
 			<div class="modal-footer">
