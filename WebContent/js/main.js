@@ -1,5 +1,11 @@
 $(function() {
 
+	if (typeof (Storage) !== "undefined") {
+		if (!sessionStorage.dvlCart) {
+			$('#cart-link').hide();
+		}
+	}
+
 	$('[data-toggle="tooltip"]').tooltip();
 
 	$('#addToCart').on(
@@ -102,26 +108,32 @@ $(function() {
 				for (var i = 0; i < $cart.length; i++) {
 					if ($cart[i]) {
 						var fila = '<li class="list-group-item d-flex justify-content-between lh-condensed">';
-						fila += '<div><h6 class="my-0">'+$cart[i].nombre+'</h6>';
-						fila += '<small class="text-muted">Cantidad: <span class="quantity">'+$cart[i].cant+'</span></small>';
-						fila += '</div> <span class="text-muted">'+$cart[i].precio.toFixed(2)+'</span>';
-						fila += '<input type="hidden" name="articulos" value="'+$cart[i].aid+','+$cart[i].cant+'"/>';					
+						fila += '<div><h6 class="my-0">' + $cart[i].nombre
+								+ '</h6>';
+						fila += '<small class="text-muted">Cantidad: <span class="quantity">'
+								+ $cart[i].cant + '</span></small>';
+						fila += '</div> <span class="text-muted">'
+								+ $cart[i].precio.toFixed(2) + '</span>';
+						fila += '<input type="hidden" name="articulos" value="'
+								+ $cart[i].aid + ',' + $cart[i].cant + '"/>';
 						fila += '</li>';
 						subtotal += ($cart[i].precio * $cart[i].cant);
 						miniCart.append(fila);
 						cantItems++;
 					}
 				}
-				if(cantItems != 0){
+				if (cantItems != 0) {
 					$('#cantTotalItems').text(cantItems);
 				}
-				if(subtotal != 0){
-					miniCart.append($('<li class="list-group-item d-flex justify-content-between"><span>Total (AR$)</span> <strong>$'+subtotal.toFixed(2)+'</strong></li>'));
-				}				
+				if (subtotal != 0) {
+					miniCart
+							.append($('<li class="list-group-item d-flex justify-content-between"><span>Total (AR$)</span> <strong>$'
+									+ subtotal.toFixed(2) + '</strong></li>'));
+				}
 			}
 		}
 	}
-	
+
 	if ($('#congrats').length > 0) {
 		if (typeof (Storage) !== "undefined") {
 			if (sessionStorage.dvlCart) {
@@ -133,6 +145,7 @@ $(function() {
 });
 
 function addItemToCart(cartItem) {
+	$('#cart-link').show();
 
 	if (typeof (Storage) !== "undefined") {
 		if (sessionStorage.dvlCart) {
