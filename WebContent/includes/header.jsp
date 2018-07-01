@@ -29,7 +29,7 @@
 
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav mr-auto">
-        <% if(request.getSession().getAttribute("cliente") != null) { %>
+        <% if(request.getSession().getAttribute("usuario") == null) { %>
           <li class="nav-item active">
             <a class="nav-link" href="<%= request.getContextPath() %>/index.jsp">Inicio</a>
           </li>
@@ -91,7 +91,7 @@
           <% if(request.getSession().getAttribute("cliente") == null) { %>
             <a class="nav-link" href="<%= request.getContextPath() %>/admin/login.jsp"><span class="d-md-none">Ingresar</span><i class="fas fa-user-circle fa-2x d-none d-md-block"></i></a>
           <% } else { %>
-          <a class="nav-link" href="<%= request.getContextPath() %>/admin/logout.jsp"><span class="d-md-none">Cerrar Sesión</span><i class="fas fa-sign-out-alt fa-2x d-none d-md-block""></i></a>
+          <a class="nav-link" href="<%= request.getContextPath() %>/administracion?action=logout"><span class="d-md-none">Cerrar Sesión</span><i class="fas fa-sign-out-alt fa-2x d-none d-md-block""></i></a>
           <%} %>
           </li>
           <li class="nav-item">
