@@ -154,6 +154,11 @@ $(function() {
 		$(this).find('input[type=submit]').attr('disabled', 'disabled');
 	})
 	
+	$('#deposito .item-open').on('click', function(e){
+		e.preventDefault();
+		
+	});
+	
 	$('#article-ajax').on('click', function(e){
 		e.preventDefault();
 		var $id = $(this).data('aid');

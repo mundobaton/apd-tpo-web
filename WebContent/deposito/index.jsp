@@ -27,8 +27,9 @@
 				<tr class="d-flex">
 					<th scope="col" class="col-2">Código</th>
 					<th scope="col" class="col-6">Artí­culo</th>
-					<th scope="col" class="col-2 text-center">Cantidad</th>
+					<th scope="col" class="col-1 text-center">Cantidad</th>
 					<th scope="col" class="col-2 text-center">Estado</th>
+					<th scope="col" class="col-1 text-center">Ver</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,7 +41,7 @@
 				<tr class="d-flex almacen-item">
 					<td class="col-2 item-id"><%=item.getId()%></td>
 					<td class="col-6 item-article"><%=item.getItemPedido().getArticulo().getNombre()%></td>
-					<td class="col-2 item-quantity text-center"><%=item.getCantidad()%></td>
+					<td class="col-1 item-quantity text-center"><%=item.getCantidad()%></td>
 					<td class="col-2 item-status text-center">
 					<%if(item.getEstado() == 'P') {%>
 					<span class="badge badge-pill badge-warning">Pendiente</span>
@@ -48,6 +49,10 @@
 					<span class="badge badge-pill badge-success">Completo</span>
 					<%}  %>
 					</td>
+					<td class="col-1 text-center">
+					<a class="item-open text-success" data-id="<%=item.getId()%>"
+						href="#"><i class="fas fa-eye"></i></a>
+						</td>
 				</tr>
 			<%
 				}
