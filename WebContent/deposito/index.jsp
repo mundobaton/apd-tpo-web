@@ -1,3 +1,4 @@
+<%@page import="edu.uade.apd.tpo.repository.dto.ReposicionDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="edu.uade.apd.tpo.repository.delegate.DepositoDelegate"%>
 <jsp:include page="../includes/header.jsp" />
@@ -31,12 +32,14 @@
 				</tr>
 			</thead>
 			<tbody>
-			<% List<ReposicionDTO> items = DepositoDelegate.getInstance().obtenerItemsReposicion(); 
-			for(ReposicionDTO item : items){
+			<% 
+			List<ReposicionDTO> items = DepositoDelegate.getInstance().obtenerItemsReposicion(); 
+			if(items != null){
+				for(ReposicionDTO item : items){
 			%>
 				<tr class="d-flex almacen-item">
 					<td class="col-2 item-id"><%=item.getId()%></td>
-					<td class="col-6 item-article"><%=item.getArticulo().getNombre()%></td>
+					<td class="col-6 item-article"><%=item.getItemPedido().getArticulo().getNombre()%></td>
 					<td class="col-2 item-quantity text-center"><%=item.getCantidad()%></td>
 					<td class="col-2 item-status text-center">
 					<%if(item.getEstado() == 'P') {%>
@@ -46,7 +49,10 @@
 					<%}  %>
 					</td>
 				</tr>
-				<%} %>
+			<%
+				}
+			} 
+			%>
 			</tbody>
 		</table>
 	</div>
