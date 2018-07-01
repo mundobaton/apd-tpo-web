@@ -13,7 +13,7 @@
 		enctype="multipart/form-data">
 		<div class="form-row">
 			<div class="form-group col-md-9">
-				<label for="articulo">ArtÃ­culo</label> <select name="articulo"
+				<label for="articulo">Artí­culo</label> <select name="articulo"
 					class="form-control">
 					<option>Seleccione...</option>
 					<option value="00">Articulo 1 (id: 00)</option>

@@ -5,6 +5,10 @@ $(function() {
 		if (!sessionStorage.dvlCart) {
 			$cartLink.hide();
 		} else {
+			if (sessionStorage.dvlTotalItems) {
+				$cartLink.find('.badge').text(sessionStorage.dvlTotalItems)
+						.show();
+			}
 			$cartLink.show();
 		}
 	}
@@ -154,8 +158,12 @@ $(function() {
 
 function addItemToCart(cartItem) {
 	$('#cart-link').show();
-
 	if (typeof (Storage) !== "undefined") {
+		var CART_ITEMS_NR = 0;
+		if (sessionStorage.dvlTotalItems) {
+			CART_ITEMS_NR = sessionStorage.dvlTotalItems;
+		}
+
 		if (sessionStorage.dvlCart) {
 			var oldCart = JSON.parse(sessionStorage.dvlCart);
 			var newItem = true;
@@ -170,13 +178,17 @@ function addItemToCart(cartItem) {
 			}
 			if (newItem) {
 				oldCart.push(cartItem);
+				CART_ITEMS_NR++;
 			}
 			sessionStorage.setItem("dvlCart", JSON.stringify(oldCart));
 		} else {
 			var items = [];
 			items.push(cartItem);
 			sessionStorage.setItem("dvlCart", JSON.stringify(items));
+			CART_ITEMS_NR++;
 		}
+		$('#cart-link .badge').text(CART_ITEMS_NR).show();
+		sessionStorage.setItem("dvlTotalItems", CART_ITEMS_NR);
 		showAlert('Su carrito ha sido actualizado! <a href="' + getBaseUrl()
 				+ '/admin/cart.jsp">Ver carrito</a>', 'success');
 		var carrito = JSON.parse(sessionStorage.dvlCart);
@@ -204,17 +216,21 @@ function removeItemFromCart(articleId) {
 					}
 				}
 			}
-			
+
 			$('#cart-subtotal').text(subtotal.toFixed(2));
-			
+			sessionStorage.setItem("dvlTotalItems", cantItems);
+			$('#cart-link .badge').text(sessionStorage.dvlTotalItems);
+
 			if (cantItems == 0) {
 				sessionStorage.clear();
+				$('#cart-link, #cart-link .badge').hide();
 				showAlert('Su carrito esta vacio! <a href="' + getBaseUrl()
-						+ '/catalogo/articulos.jsp">Volver al catalogo</a>', 'danger');
+						+ '/catalogo/articulos.jsp">Volver al catalogo</a>',
+						'danger');
 				$('#cart .btn-success').attr('disabled', 'disabled');
 			} else {
 				sessionStorage.setItem("dvlCart", JSON.stringify(oldCart));
-				
+
 				var carrito = JSON.parse(sessionStorage.dvlCart);
 				console.log(carrito);
 			}

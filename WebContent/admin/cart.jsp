@@ -36,7 +36,7 @@
 		</div>
 		<div class="p-2">
 			<button class="btn btn-success" disabled="disabled"
-				href="<%=request.getContextPath()%>/admin/checkout.jsp">Continuar
+				onclick="window.location.href = '<%=request.getContextPath()%>/admin/checkout.jsp'">Continuar
 				al checkout</button>
 		</div>
 	</div>

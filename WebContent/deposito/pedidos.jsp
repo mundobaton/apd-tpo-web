@@ -3,7 +3,7 @@
 <section id="deposito-pedidos">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">DepÃ³sito</a></li>
+			<li class="breadcrumb-item"><a href="#">Depósito</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Pedidos a
 				Completar</li>
 		</ol>

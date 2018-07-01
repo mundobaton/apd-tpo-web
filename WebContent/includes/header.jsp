@@ -103,7 +103,7 @@
           </li>
           <% if(request.getSession().getAttribute("cliente") != null) { %>
           <li id="cart-link" class="nav-item" style="display:none;">
-            <a class="nav-link" href="<%= request.getContextPath() %>/admin/cart.jsp"><span class="d-md-none">Carrito</span><i class="fas fa-shopping-cart fa-2x d-none d-md-block"></i></a>
+            <a class="nav-link" href="<%= request.getContextPath() %>/admin/cart.jsp"><span class="d-md-none">Carrito</span><i class="fas fa-shopping-cart fa-2x d-none d-md-block"></i><span class="badge badge-pill badge-primary" style="display:none;">0</span></a>
           </li>
           <% } %>
         </ul>
