@@ -101,15 +101,15 @@ $(function() {
 				var miniCart = $('#mini-cart');
 				for (var i = 0; i < $cart.length; i++) {
 					if ($cart[i]) {
-						cantItems++;
 						var fila = '<li class="list-group-item d-flex justify-content-between lh-condensed">';
 						fila += '<div><h6 class="my-0">'+$cart[i].nombre+'</h6>';
 						fila += '<small class="text-muted">Cantidad: <span class="quantity">'+$cart[i].cant+'</span></small>';
 						fila += '</div> <span class="text-muted">'+$cart[i].precio.toFixed(2)+'</span>';
-						fila += '<input type="hidden" name="articulos[]" value="'+$cart[i].aid+','+$cart[i].cant+'"/>';					
+						fila += '<input type="hidden" name="articulos" value="'+$cart[i].aid+','+$cart[i].cant+'"/>';					
 						fila += '</li>';
 						subtotal += ($cart[i].precio * $cart[i].cant);
 						miniCart.append(fila);
+						cantItems++;
 					}
 				}
 				if(cantItems != 0){
