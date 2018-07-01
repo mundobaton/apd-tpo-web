@@ -36,7 +36,7 @@
           <li class="nav-item">
             <a class="nav-link" href="<%= request.getContextPath() %>/catalogo/articulos.jsp">Catálogo</a>
           </li>
-        <% } %>
+        <% } else { %>
           <!-- menu administradores -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarCompras" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,6 +83,7 @@
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
+          <% } %>
           <!-- /menu administradores-->
         </ul>
         <ul class="navbar-nav ml-auto">
