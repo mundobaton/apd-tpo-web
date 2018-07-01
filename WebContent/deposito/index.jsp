@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="edu.uade.apd.tpo.repository.delegate.DepositoDelegate"%>
 <jsp:include page="../includes/header.jsp" />
 <main role="main" class="container">
 <section id="deposito">
@@ -9,7 +11,7 @@
 	</nav>
 	<div class="d-flex">
 		<div class="mr-auto p-2">
-			<h2 class="title text-muted">Almacén</h2>
+			<h2 class="title text-muted">Almacén Reposición</h2>
 		</div>
 		<div class="p-2">
 			<a class="btn btn-info float-right" href="#">Retirar artículo</a>
@@ -21,28 +23,30 @@
 	<div class="table-responsive">
 		<table class="table">
 			<thead class="thead-light">
-				<tr>
-					<th scope="col" class="col-md-2">Código</th>
-					<th scope="col" class="col-md-6">Artí­culo</th>
-					<th scope="col" class="col-md-2 text-center">Cantidad</th>
-					<th scope="col" class="col-md-2 text-center">Estado</th>
+				<tr class="d-flex">
+					<th scope="col" class="col-2">Código</th>
+					<th scope="col" class="col-6">Artí­culo</th>
+					<th scope="col" class="col-2 text-center">Cantidad</th>
+					<th scope="col" class="col-2 text-center">Estado</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="almacen-item">
-					<td class="item-id">ABC123</td>
-					<td class="item-article">(vací­o)</td>
-					<td class="item-quantity text-center">0</td>
-					<td class="item-status text-center"><span
-						class="badge badge-pill badge-success">Disponible</span></td>
+			<% List<ReposicionDTO> items = DepositoDelegate.getInstance().obtenerItemsReposicion(); 
+			for(ReposicionDTO item : items){
+			%>
+				<tr class="d-flex almacen-item">
+					<td class="col-2 item-id"><%=item.getId()%></td>
+					<td class="col-6 item-article"><%=item.getArticulo().getNombre()%></td>
+					<td class="col-2 item-quantity text-center"><%=item.getCantidad()%></td>
+					<td class="col-2 item-status text-center">
+					<%if(item.getEstado() == 'P') {%>
+					<span class="badge badge-pill badge-warning">Pendiente</span>
+					<%} else if(item.getEstado() == 'C') {%>
+					<span class="badge badge-pill badge-success">Completo</span>
+					<%}  %>
+					</td>
 				</tr>
-				<tr class="almacen-item">
-					<td class="item-id">DEF234</td>
-					<td class="item-article">Artí­culo 7</td>
-					<td class="item-quantity text-center">222</td>
-					<td class="item-status text-center"><span
-						class="badge badge-pill badge-danger">Ocupada</span></td>
-				</tr>
+				<%} %>
 			</tbody>
 		</table>
 	</div>
