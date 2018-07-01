@@ -22,7 +22,7 @@
 						Unidad: <%=art.getUnidad()%></small>
 				</p>
 				<p class="price-tag">
-					$<%=art.getPrecio()%></p>
+					$<span><%=art.getPrecio()%></span></p>
 				<div class="d-flex justify-content-between">
 					<a class="btn btn-secondary"
 						href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=art.getId()%>"><i
@@ -44,7 +44,9 @@
 <!-- Modal -->
 <div class="modal fade" id="addToCart" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	<form class="modal-dialog modal-dialog-centered" role="document" id="addItemToCart" method="get" action="?" enctype="multipart/form-data" >
+	<form class="modal-dialog modal-dialog-centered" role="document"
+		id="addItemToCart" method="get" action="?"
+		enctype="multipart/form-data">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLongTitle">Agregar al
@@ -56,25 +58,27 @@
 			</div>
 			<div class="modal-body">
 				<div class="container">
-						<div class="row">
-							<div class="col-xs-12">
-								<h3>{nombre}</h3>
-								<p>{descripcion}</p>
-							</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<h3>{nombre}</h3>
+							<p>{descripcion}</p>
 						</div>
-						<div class="form-group row">
-							<label class="col-xs-12 col-sm-2 pl-0" for="cantidad">Cantidad</label>
-							<div class="col-xs-12 col-sm-10">
-								<input id="cantidad" class="form-control" type="number"
-									name="cantidad" min="1" step="1" value="1" /> <input id="aid"
-									type="hidden" name="aid" value="" />
-							</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-xs-12 col-sm-2 pl-0" for="cantidad">Cantidad</label>
+						<div class="col-xs-12 col-sm-10">
+							<input id="cantidad" class="form-control" type="number"
+								name="cantidad" min="1" step="1" value="1" /> 
+								<input id="aid" type="hidden" name="aid" value="" />
+								<input id="precio" type="hidden" name="precio" value=""/>
 						</div>
+					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-				<input type="submit" class="btn btn-primary" id="addItemToCartBtn" value="Agregar"/>
+				<input type="submit" class="btn btn-primary" id="addItemToCartBtn"
+					value="Agregar" />
 			</div>
 		</div>
 	</form>

@@ -10,13 +10,13 @@
 			<table class="table">
 				<tfoot>
 					<tr>
-						<th scope="row" colspan="4">Total</th>
-						<th scope="row" class="text-center">$110.00</th>
+						<th scope="row" colspan="4">Subtotal</th>
+						<th scope="row" class="text-center">$<span id="cart-subtotal"></span></th>
 					</tr>
 				</tfoot>
 				<thead class="thead-light">
 					<tr>
-						<th scope="col" class="col-md-4">ArtÃ­culo</th>
+						<th scope="col" class="col-md-4">Artí­culo</th>
 						<th scope="col" class="col-md-2 text-center">Precio</th>
 						<th scope="col" class="col-md-1 text-center">Cantidad</th>
 						<th scope="col" class="col-md-2 text-center">Subtotal</th>
@@ -24,33 +24,26 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="cart-item" id="aid-1">
-						<td class="item-title">ArtÃ­culo 1</td>
-						<td class="item-price text-center">$99.00</td>
-						<td class="item-quantity text-center"><input type="number"
-							step="1" min="1" value="1" class="form-control" /></td>
-						<td class="item-subtotal text-center">$99.00</td>
-						<td class="text-center"><a class="item-remove" href="#"
-							data-aid="1" data-toggle="modal" data-target="#removeFromCart"><i
-								class="fas fa-trash-alt"></i></a></td>
-					</tr>
-					<tr class="cart-item" id="aid-2">
-						<td class="item-title">ArtÃ­culo 2</td>
-						<td class="item-price text-center">$11.00</td>
-						<td class="item-quantity text-center"><input type="number"
-							step="1" min="1" value="1" class="form-control" /></td>
-						<td class="item-subtotal text-center">$11.00</td>
-						<td class="text-center"><a class="item-remove" href="#"
-							data-aid="2" data-toggle="modal" data-target="#removeFromCart"><i
-								class="fas fa-trash-alt"></i></a></td>
-					</tr>
+					<!-- aca van los items del carrito -->
 				</tbody>
 			</table>
 		</div>
 	</form>
 	<hr class="mb-4">
-	<a class="btn btn-primary btn-lg btn-block" href="<%=request.getContextPath()%>/admin/checkout.jsp">Continuar
-		al checkout</a>
+	<div class="d-flex justify-content-end">
+		<div class="p-2">
+			<a class="btn btn-primary"
+				href="<%=request.getContextPath()%>/catalogo/articulos.jsp">Seguir comprando</a>
+		</div>
+		<div class="p-2">
+			<a class="btn btn-success"
+				href="<%=request.getContextPath()%>/admin/checkout.jsp">Continuar
+				al checkout</a>
+		</div>
+	</div>
+
+
+
 </section>
 <!--Modal-->
 <div class="modal fade" id="removeFromCart" tabindex="-1" role="dialog"
@@ -66,7 +59,7 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					Â¿EstÃ¡ seguro que desea eliminar el articulo <span
+					¿Está seguro que desea eliminar el artículo <span
 						class="article-name text-muted">{articulo}</span> del carrito?
 				</p>
 			</div>

@@ -10,7 +10,7 @@
 			<p class="lead">
 				En Das Verrückte Lagerhaus usted podrá encontrar todos los
 				artí­culos que necesita para satisfacer las necesidades de su
-				empresa.<br /> <a href="<%=request.getContextPath()%>/login.jsp">Inicie
+				empresa.<br /> <a href="<%=request.getContextPath()%>/admin/login.jsp">Inicie
 					sesión</a> con su usuario, realice su pedido y pronto lo estará
 				recibiendo en el domicilio de su elección.<br /> ¡Agradecemos que
 				nos haya elegido y esperamos que disfrute su compra!
