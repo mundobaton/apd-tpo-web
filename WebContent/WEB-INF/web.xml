@@ -64,4 +64,14 @@
 		<servlet-name>deposito</servlet-name>
 		<url-pattern>/deposito</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>Despacho</display-name>
+		<servlet-name>despacho</servlet-name>
+		<servlet-class>edu.uade.apd.tpo.web.servlet.DespachoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>despacho</servlet-name>
+		<url-pattern>/despacho</url-pattern>
+	</servlet-mapping>
 </web-app>
