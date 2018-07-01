@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.EstadoPedidoDTO"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.PedidoDTO"%>
 <%@page import="java.util.List"%>
@@ -27,6 +28,7 @@
 			<tbody>
 			<% List<PedidoDTO> pedidos = DespachoDelegate.getInstance().obtenerPedidosCompletos();
 			if(pedidos != null){
+				SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
 				for(PedidoDTO pedido : pedidos){
 			%>
 				<tr class="d-flex cart-item">
@@ -36,7 +38,7 @@
 					<span class="badge badge-pill badge-success">Completo</span>
 					<%} %>
 					</td>
-					<td class="col-2 item-date"><%=pedido.getFechaPedido()%></td>
+					<td class="col-2 item-date"><%=f.format(pedido.getFechaPedido())%></td>
 					<td class="col-6 item-consumer"><%=pedido.getCliente().getNombre()%></td>
 					<td class="col-1 text-center"><a class="item-open text-success"
 						href="<%=request.getContextPath()%>/despacho/pedido.jsp?pid=1"><i class="fas fa-eye"></i></a></td>

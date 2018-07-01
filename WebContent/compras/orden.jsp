@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.OrdenCompraDTO"%>
 <%@page import="edu.uade.apd.tpo.repository.delegate.ComprasDelegate"%>
 <jsp:include page="../includes/header.jsp" />
@@ -21,9 +22,10 @@
 	<%
 		OrdenCompraDTO oc = ComprasDelegate.getInstance().obtenerPorId(Long.parseLong(request.getParameter("oid")));
 		if (oc != null) {
+			SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
 	%>
 	<ul class="list-group">
-		<li class="list-group-item"><strong>Fecha: </strong><%=oc.getFechaCreacion()%></li>
+		<li class="list-group-item"><strong>Fecha: </strong><%=f.format(oc.getFechaCreacion())%></li>
 		<li class="list-group-item"><strong>Artí­culo: </strong><a
 			id="article-ajax"
 			href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=oc.getItem().getArticulo().getId()%>"
