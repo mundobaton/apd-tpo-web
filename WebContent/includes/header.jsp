@@ -10,10 +10,10 @@
   <title>Das Verrückte Lagerhaus</title>
   <meta name="description" content="TPO de la materia Aplicaciones Distribuidas.">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="<%= request.getContextPath() %>/site.webmanifest">
+  <link rel="apple-touch-icon" href="<%= request.getContextPath() %>/icon.png">
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/normalize.css">
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<%= request.getContextPath() %>/fontawesome/css/all.css">

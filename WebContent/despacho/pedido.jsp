@@ -65,10 +65,10 @@
 	</h2>
 	<ul class="list-group">
 		<li class="list-group-item"><strong>Fecha de realización: </strong><%=f.format(pedido.getFechaPedido())%></li>
-		<%if(pedido.getFechaDespacho() != null) {%>		
+		<% if(pedido.getFechaDespacho() != null) { %>		
 		<li class="list-group-item"><strong>Fecha de despacho: </strong><%=f.format(pedido.getFechaDespacho())%></li>
 		<li class="list-group-item"><strong>Transportista: </strong>saraza</li>
-		<%} %>
+		<% } %>
 		<li class="list-group-item"><strong>Cliente: </strong><%=pedido.getCliente().getNombre()%></li>
 		<li class="list-group-item"><strong>Domicilio: </strong> <%=pedido.getDomicilio().getCalle()%>
 			<%=pedido.getDomicilio().getNumero()%> - (<%=pedido.getDomicilio().getCodigoPostal()%>)
