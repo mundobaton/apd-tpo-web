@@ -44,4 +44,14 @@
 		<servlet-name>pedidos</servlet-name>
 		<url-pattern>/pedidos</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>Compras</display-name>
+		<servlet-name>compras</servlet-name>
+		<servlet-class>edu.uade.apd.tpo.web.servlet.ComprasServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>compras</servlet-name>
+		<url-pattern>/compras</url-pattern>
+	</servlet-mapping>
 </web-app>
