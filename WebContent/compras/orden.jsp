@@ -51,7 +51,6 @@
 			if (oc.getEstado() == 'P') {
 		%>
 		<div class="p-2">
-		href="<%=request.getContextPath()%>/compras?action=procesar-ocs"
 			<a class="btn btn-primary float-right"
 				href="<%=request.getContextPath()%>/compras?action=procesar-oc&oid=<%=request.getParameter("oid")%>">Procesar
 				Órden de Compra</a>

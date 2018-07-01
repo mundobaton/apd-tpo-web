@@ -41,7 +41,7 @@
 			if(items != null){
 				for(ReposicionDTO item : items){
 			%>
-				<tr class="d-flex almacen-item">
+				<tr class="d-flex almacen-item" id="repoId-<%=item.getId()%>">
 					<td class="col-2 item-id"><%=item.getId()%></td>
 					<td class="col-6 item-article"><%=item.getItemPedido().getArticulo().getNombre()%></td>
 					<td class="col-1 item-quantity text-center"><%=item.getCantidad()%></td>
@@ -52,7 +52,7 @@
 					<span class="badge badge-pill badge-success">Completo</span>
 					<%}  %>
 					</td>
-					<td class="col-1 text-center">
+					<td class="item-action col-1 text-center">
 					<%if(item.getEstado() == 'P'){ %>
 					<a class="item-open text-secondary" data-id="<%=item.getId()%>"
 						href="#"><i class="far fa-check-square fa-lg"></i></a>

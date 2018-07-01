@@ -168,6 +168,7 @@ $(function() {
 	$('#reponerItemForm').on('submit', function(e){
 		e.preventDefault();
 		var $form = $(this).serialize();
+		var $repoId = $(this).find('input[name=repoId]').val();
 		var $submit = $(this).find('input[type=submit]');
 		$submit.attr('disabled', 'disabled');
 		$('<i class="fas fa-spinner fa-spin"></i>').insertAfter($submit)
@@ -178,6 +179,9 @@ $(function() {
 			dataType: 'text',
 			success : function(r, textStatus, xhr){
 				showAlert('La reposici&oacute;n se ejecut&oacute; exitosamente!', 'success');
+				$('#deposito #repoId-'+$repoId).find('.badge').removeClass('badge-warning').addClass('badge-success').text('Completo');
+				$('#deposito #repoId-'+$repoId).find('.item-action a.item-open').remove();
+				$('#deposito #repoId-'+$repoId).find('.item-action').append('<span class="text-success"><i class="fas fa-check-square fa-lg"></i></span>');
 			},
 			error: function (request, status, error) {
 				showAlert('Error: '+request.responseText, 'danger');
