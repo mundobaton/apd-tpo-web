@@ -33,7 +33,7 @@ public class DespachoServlet extends HttpServlet {
 		if(action.equals(DESPACHAR)) {
 			Long pedidoId = Long.parseLong(req.getParameter("pid"));
 			delegate.despacharPedido(pedidoId);
-			navigate(req, resp, "despacho/pedido.jsp?result=success");
+			navigate(req, resp, "/despacho/pedido.jsp?result=success");
 		}
 	}
 
