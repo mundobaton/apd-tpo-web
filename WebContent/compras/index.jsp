@@ -1,48 +1,32 @@
-<jsp:include page="../includes/header.jsp" />
+<jsp:include page="../includes/header.jsp"/>
 <main role="main" class="container">
 <section id="compras">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Compras</a></li>
-			<li class="breadcrumb-item active" aria-current="page">√ìrdenes
-				de Compra</li>
+			<li class="breadcrumb-item active" aria-current="page">”rdenes de Compra</li>
 		</ol>
 	</nav>
-	<h2 class="title text-muted">√ìrdenes de Compra</h2>
+	<h2 class="title text-muted">”rdenes de Compra</h2>
 	<div class="table-responsive">
 		<table class="table">
 			<thead class="thead-light">
-				<tr>
-					<th scope="col" class="col-md-1">ID</th>
-					<th scope="col" class="col-md-8">Art√≠culo</th>
-					<th scope="col" class="col-md-2 text-center">Estado</th>
-					<th scope="col" class="col-md-1 text-center">Ver</th>
+				<tr class="d-flex">
+					<th scope="col" class="col-1">ID</th>
+					<th scope="col" class="col-8">ArtÌculo</th>
+					<th scope="col" class="col-2 text-center">Estado</th>
+					<th scope="col" class="col-1 text-center">Ver</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="cart-item">
-					<td class="item-id">1</td>
-					<td class="item-article">Art√≠culo 1</td>
-					<td class="item-status text-center"><span
+				<tr class="d-flex cart-item">
+					<td class="col-1 item-id">1</td>
+					<td class="col-8 item-article">ArtÌ≠culo 1</td>
+					<td class="col-2 item-status text-center"><span
 						class="badge badge-pill badge-warning">Pendiente</span></td>
-					<td class="text-center"><a class="item-open text-success"
-						href="<%=request.getContextPath()%>/compras/orden.jsp?oid=1"><i class="fas fa-eye"></i></a></td>
-				</tr>
-				<tr class="cart-item">
-					<td class="item-id">2</td>
-					<td class="item-article">Art√≠culo 5</td>
-					<td class="item-status text-center"><span
-						class="badge badge-pill badge-success">Ejecutada</span></td>
-					<td class="text-center"><a class="item-open text-success"
-						href="<%=request.getContextPath()%>/compras/orden.jsp?oid=2"><i class="fas fa-eye"></i></a></td>
-				</tr>
-				<tr class="cart-item">
-					<td class="item-id">3</td>
-					<td class="item-article">Art√≠culo 7</td>
-					<td class="item-status text-center"><span
-						class="badge badge-pill badge-danger">Cancelada</span></td>
-					<td class="text-center"><a class="item-open text-success"
-						href="<%=request.getContextPath()%>/compras/orden.jsp?oid=3"><i class="fas fa-eye"></i></a></td>
+					<td class="col-1 text-center"><a class="item-open text-success"
+						href="<%=request.getContextPath()%>/compras/orden.jsp?oid=1"><i
+							class="fas fa-eye"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
