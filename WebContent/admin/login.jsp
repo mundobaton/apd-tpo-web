@@ -4,7 +4,7 @@
 <div class="row">
 	<div
 		class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 align-self-center">
-		
+		<%= request.getAttribute("error") == null ? "" : request.getAttribute("error") %>
 		<form method="post" action="<%=request.getContextPath()%>/administracion" class="form-signin text-center">
 			<a href="<%=request.getContextPath()%>/index.jsp"> <img class="" src="<%=request.getContextPath()%>/img/logo_circle_100.png"
 				alt="Logo Das Verrückte Lagerhaus" width="100" height="100">

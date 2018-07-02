@@ -6,16 +6,6 @@
 	<display-name>APD TPO WEB</display-name>
 	<servlet>
 		<description></description>
-		<display-name>Clientes</display-name>
-		<servlet-name>clientes</servlet-name>
-		<servlet-class>edu.uade.apd.tpo.web.servlet.ClientesServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>clientes</servlet-name>
-		<url-pattern>/clientes</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
 		<display-name>Articulos</display-name>
 		<servlet-name>articulos</servlet-name>
 		<servlet-class>edu.uade.apd.tpo.web.servlet.ArticulosServlet</servlet-class>
