@@ -1,3 +1,4 @@
+<%@page import="edu.uade.apd.tpo.repository.dto.FacturaDTO"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.EstadoPedidoDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page
@@ -16,7 +17,8 @@
 	</nav>
 	<h2 class="title text-muted">Facturas Emitidas</h2>
 	<div class="d-flex justify-content-end mb-2">
-		<span class="text-muted py-2">Filtrar: </span> <a class="btn btn-info ml-3"
+		<span class="text-muted py-2">Filtrar: </span> <a
+			class="btn btn-info ml-3"
 			href="<%=request.getContextPath()%>/admin/facturas.jsp">Ver todas</a>
 		<a class="btn btn-success ml-3"
 			href="<%=request.getContextPath()%>/admin/facturas.jsp?show=pagas">Ver
@@ -39,6 +41,40 @@
 					</tr>
 				</thead>
 				<tbody>
+					<%
+						List<FacturaDTO> facturas = FacturacionDelegate.getInstance().obtenerFacturas();
+						if (facturas != null && !facturas.isEmpty()) {
+							String ver = "";
+							SimpleDateFormat fdate = new SimpleDateFormat("dd-MM-yyyy");
+							if (request.getParameter("show") != null) {
+								ver = request.getParameter("show");
+							}
+							for (FacturaDTO f : facturas) {
+								if((f.getEstado() == 'P' && ver.equals("impagas")) || (f.getEstado() == 'C' && ver.equals("pagas")) || (ver.equals(""))){
+					%>
+					<tr>
+						<td><%=f.getId()%></td>
+						<td><%=fdate.format(f.getFecha())%></td>
+						<td>
+							<%
+								if (f.getEstado() == 'P') {
+							%> <span class="badge badge-pill badge-warning">Pendiente</span>
+							<%
+								} else if (f.getEstado() == 'C') {
+							%> <span class="badge badge-pill badge-success">Paga</span> <%
+ 	}
+ %>
+						</td>
+						<td><%=f.getPedido().getCliente().getNombre()%></td>
+						<td>$<%=Math.round(f.getTotal() * 100.00) / 100.00%></td>
+						<td><a class="item-open text-success"
+							href="<%=request.getContextPath()%>/facturacion/factura.jsp?fid=<%=f.getId()%>"><i
+								class="fas fa-eye"></i></a></td>
+					</tr>
+					<%	}
+						}
+						}
+					%>
 				</tbody>
 			</table>
 		</div>
