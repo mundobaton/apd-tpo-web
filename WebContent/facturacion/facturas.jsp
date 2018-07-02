@@ -59,7 +59,7 @@
 								fid = request.getParameter("fid");
 							}
 							for (FacturaDTO f : facturas) {
-								if ((f.getId().longValue() == Long.parseLong(fid)) || (f.getEstado() == 'P' && ver.equals("impagas")) || (f.getEstado() == 'C' && ver.equals("pagas"))
+								if ((!fid.equals("") && f.getId().longValue() == Long.parseLong(fid)) || (f.getEstado() == 'P' && ver.equals("impagas")) || (f.getEstado() == 'C' && ver.equals("pagas"))
 										|| (ver.equals(""))) {
 					%>
 					<tr>
