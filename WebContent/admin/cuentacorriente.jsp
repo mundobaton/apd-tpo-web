@@ -15,6 +15,7 @@
 	</nav>
 	<%
 		ClienteDTO loggedIn = (ClienteDTO) request.getSession().getAttribute("cliente");
+	
 		if (loggedIn != null) {
 			ClienteDTO cliente = AdministracionDelegate.getInstance().findClienteById(loggedIn.getId());
 
