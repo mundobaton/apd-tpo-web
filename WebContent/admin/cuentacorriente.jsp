@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<%
-		if (cliente.getCuentaCorriente().getNotas() != null) {
+		if (cliente.getCuentaCorriente().getNotas() != null && !cliente.getCuentaCorriente().getNotas().isEmpty()) {
 	%>
 	<div class="row mb-5">
 		<div class="col">
@@ -70,8 +70,6 @@
 						<td>
 						<% if(f.getFecha() != null){ %>
 						<%=fdate.format(f.getFecha())%></td>
-						<%} else { %>
-						Pendiente
 						<%} %>
 						<td><a href="<%=request.getContextPath()%>/admin/pedido.jsp?pid=<%=f.getPedido().getId()%>""><%=f.getPedido().getId()%></a></td>
 						<td><%=f.getTotal()%></td>
