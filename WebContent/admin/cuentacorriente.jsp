@@ -13,8 +13,11 @@
 		</ol>
 	</nav>
 	<%
-		ClienteDTO cliente = (ClienteDTO) request.getSession().getAttribute("cliente");
-		if (cliente != null) {
+		ClienteDTO loggedIn = (ClienteDTO) request.getSession().getAttribute("cliente");
+		if (loggedIn != null) {
+			ClienteDTO cliente = AdministracionDelegate.getInstance().findClienteById(loggedIn.getId());
+
+			if (cliente != null) {
 	%>
 	<h2 class="title text-muted">Cuenta Corriente</h2>
 	<div class="row mb-5">
@@ -29,7 +32,7 @@
 	</div>
 	<%
 		if (cliente.getCuentaCorriente().getNotas() != null
-					&& !cliente.getCuentaCorriente().getNotas().isEmpty()) {
+						&& !cliente.getCuentaCorriente().getNotas().isEmpty()) {
 	%>
 	<div class="row mb-5">
 		<div class="col">
@@ -55,7 +58,7 @@
 			<h3>Facturas emitidas</h3>
 			<%
 				if (cliente.getCuentaCorriente().getFacturas() != null) {
-						SimpleDateFormat fdate = new SimpleDateFormat("dd-MM-yyyy");
+							SimpleDateFormat fdate = new SimpleDateFormat("dd-MM-yyyy");
 			%>
 			<div class="table-responsive">
 				<table class="table">
@@ -83,15 +86,16 @@
 							<td>
 								<%
 									if (f.getEstado() == 'P') {
-								%> <span class="badge badge-pill badge-warning">Pendiente</span> <%
-								 	} else if (f.getEstado() == 'C') {
-								 %> <span class="badge badge-pill badge-success">Paga</span> <%
-								 	}
-								 %>
+								%> <span class="badge badge-pill badge-warning">Pendiente</span>
+								<%
+									} else if (f.getEstado() == 'C') {
+								%> <span class="badge badge-pill badge-success">Paga</span> <%
+ 	}
+ %>
 							</td>
 							<td><a
 								href="<%=request.getContextPath()%>/admin/pedido.jsp?pid=<%=f.getPedido().getId()%>"><%=f.getPedido().getId()%></a></td>
-							<td>$<%=Math.round(f.getTotal()*100.00)/100.00%></td>
+							<td>$<%=Math.round(f.getTotal() * 100.00) / 100.00%></td>
 							<td><a class="item-open text-success"
 								href="<%=request.getContextPath()%>/admin/factura.jsp?fid=<%=f.getId()%>"><i
 									class="fas fa-eye"></i></a></td>
@@ -108,6 +112,7 @@
 		</div>
 	</div>
 	<%
+		}
 		}
 	%>
 </section>

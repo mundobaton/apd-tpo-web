@@ -1,3 +1,5 @@
+<%@page
+	import="edu.uade.apd.tpo.repository.delegate.AdministracionDelegate"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.EstadoPedidoDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.PedidoDTO"%>
@@ -13,8 +15,10 @@
 		</ol>
 	</nav>
 	<%
-		ClienteDTO cliente = (ClienteDTO) request.getSession().getAttribute("cliente");
-		if (cliente != null) {		
+		ClienteDTO loggedIn = (ClienteDTO) request.getSession().getAttribute("cliente");
+		if (loggedIn != null) {
+			ClienteDTO cliente = AdministracionDelegate.getInstance().findClienteById(loggedIn.getId());
+			if (cliente != null) {
 	%>
 	<h2 class="title text-muted">
 		Perfil de <span class="client-name"><%=cliente.getNombre()%></span>
@@ -23,8 +27,7 @@
 		<div class="col">
 			<h3>Datos Personales</h3>
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><strong>Email: </strong>
-					<%=cliente.getEmail()%></li>
+				<li class="list-group-item"><strong>Email: </strong> <%=cliente.getEmail()%></li>
 				<li class="list-group-item"><strong>CUIT: </strong><%=cliente.getCuit()%></li>
 				<li class="list-group-item"><strong>Condición IVA: </strong><%=cliente.getCondicionIva()%></li>
 				<li class="list-group-item"><strong>Domicilio: </strong><%=cliente.getDomicilio().getCalle()%>
@@ -49,36 +52,38 @@
 					<tbody>
 						<%
 							if (cliente.getPedidos() != null) {
-								SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
-									for (PedidoDTO p : cliente.getPedidos()) {
-										if (p != null) {
+										SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+										for (PedidoDTO p : cliente.getPedidos()) {
+											if (p != null) {
 						%>
 						<tr>
-						
+
 							<td scope="col">
-							<%if(p.getFechaPedido() != null) {%>
-							<%=f.format(p.getFechaPedido())%>
-							<%}else{ %>
-							Pendiente de Aprobación
-							<%} %>
+								<%
+									if (p.getFechaPedido() != null) {
+								%> <%=f.format(p.getFechaPedido())%> <%
+ 	} else {
+ %> Pendiente de Aprobación <%
+ 	}
+ %>
 							</td>
 							<td scope="col" class="text-center"><%=p.getId()%></td>
 							<td scope="col" class="text-center">
 								<%
 									if (p.getEstado() == EstadoPedidoDTO.GENERADO
-															|| p.getEstado() == EstadoPedidoDTO.PREAPROBADO) {
+																|| p.getEstado() == EstadoPedidoDTO.PREAPROBADO) {
 								%> <span class="badge badge-pill badge-info"><%=p.getEstado().getName()%></span>
 								<%
 									} else if (p.getEstado() == EstadoPedidoDTO.SALDO_INSUFICIENTE
-															|| p.getEstado() == EstadoPedidoDTO.RECHAZADO) {
+																|| p.getEstado() == EstadoPedidoDTO.RECHAZADO) {
 								%> <span class="badge badge-pill badge-danger"><%=p.getEstado().getName()%></span>
 								<%
 									} else if (p.getEstado() == EstadoPedidoDTO.PENDIENTE
-															|| p.getEstado() == EstadoPedidoDTO.A_FACTURAR) {
+																|| p.getEstado() == EstadoPedidoDTO.A_FACTURAR) {
 								%> <span class="badge badge-pill badge-warning"><%=p.getEstado().getName()%></span>
 								<%
 									} else if (p.getEstado() == EstadoPedidoDTO.COMPLETO
-															|| p.getEstado() == EstadoPedidoDTO.FACTURADO) {
+																|| p.getEstado() == EstadoPedidoDTO.FACTURADO) {
 								%> <span class="badge badge-pill badge-success"><%=p.getEstado().getName()%></span>
 								<%
 									}
@@ -90,8 +95,8 @@
 						</tr>
 						<%
 							}
+										}
 									}
-								}
 						%>
 					</tbody>
 				</table>
@@ -99,6 +104,7 @@
 		</div>
 	</div>
 	<%
+		}
 		}
 	%>
 </section>

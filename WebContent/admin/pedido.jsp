@@ -11,38 +11,42 @@
 	<%
 		PedidoDTO pedido = AdministracionDelegate.getInstance()
 				.findPedidoById(Long.parseLong(request.getParameter("pid")));
-		ClienteDTO cliente = (ClienteDTO) request.getSession().getAttribute("cliente");
+		ClienteDTO loggedIn = (ClienteDTO) request.getSession().getAttribute("cliente");
 
-		if (pedido != null && cliente != null
-				&& pedido.getCliente().getId().longValue() == cliente.getId().longValue()) {
-			SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+		if (loggedIn != null) {
+			ClienteDTO cliente = AdministracionDelegate.getInstance().findClienteById(loggedIn.getId());
+
+			if (pedido != null && cliente != null
+					&& pedido.getCliente().getId().longValue() == cliente.getId().longValue()) {
+				SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
 	%>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Mi Cuenta</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Ver Pedido</li>
+			<li class="breadcrumb-item active" aria-current="page">Ver
+				Pedido</li>
 		</ol>
 	</nav>
 	<h2 class="title text-muted">
 		Pedido #<span class="pid"><%=pedido.getId()%></span>
 		<%
 			if (pedido.getEstado() == EstadoPedidoDTO.GENERADO
-						|| pedido.getEstado() == EstadoPedidoDTO.PREAPROBADO) {
+							|| pedido.getEstado() == EstadoPedidoDTO.PREAPROBADO) {
 		%>
 		<span class="badge badge-info"><%=pedido.getEstado().getName()%></span>
 		<%
 			} else if (pedido.getEstado() == EstadoPedidoDTO.SALDO_INSUFICIENTE
-						|| pedido.getEstado() == EstadoPedidoDTO.RECHAZADO) {
+							|| pedido.getEstado() == EstadoPedidoDTO.RECHAZADO) {
 		%>
 		<span class="badge badge-danger"><%=pedido.getEstado().getName()%></span>
 		<%
 			} else if (pedido.getEstado() == EstadoPedidoDTO.PENDIENTE
-						|| pedido.getEstado() == EstadoPedidoDTO.A_FACTURAR) {
+							|| pedido.getEstado() == EstadoPedidoDTO.A_FACTURAR) {
 		%>
 		<span class="badge badge-warning"><%=pedido.getEstado().getName()%></span>
 		<%
 			} else if (pedido.getEstado() == EstadoPedidoDTO.COMPLETO
-						|| pedido.getEstado() == EstadoPedidoDTO.FACTURADO) {
+							|| pedido.getEstado() == EstadoPedidoDTO.FACTURADO) {
 		%>
 		<span class="badge badge-success"><%=pedido.getEstado().getName()%></span>
 		<%
@@ -90,15 +94,15 @@
 				<tbody>
 					<%
 						int cantItems = 0;
-							for (ItemPedidoDTO item : pedido.getItems()) {
-								cantItems++;
+								for (ItemPedidoDTO item : pedido.getItems()) {
+									cantItems++;
 					%>
 					<tr>
 						<th scope="row"><%=cantItems%></th>
 						<td><%=item.getArticulo().getNombre()%></td>
 						<td class="text-center">$<%=item.getArticulo().getPrecio()%></td>
 						<td class="text-center"><%=item.getCantidad()%></td>
-						<td class="text-center">$<%=Math.round(item.getArticulo().getPrecio() * item.getCantidad()*100.00)/100.00%></td>
+						<td class="text-center">$<%=Math.round(item.getArticulo().getPrecio() * item.getCantidad() * 100.00) / 100.00%></td>
 					</tr>
 					<%
 						}
@@ -109,9 +113,12 @@
 	</ul>
 	<hr />
 	<div class="d-flex justify-content-end">
-		<a class="btn btn-primary" href="<%=request.getContextPath()%>/admin/perfil.jsp">Volver al Perfil</a>
+		<a class="btn btn-primary"
+			href="<%=request.getContextPath()%>/admin/perfil.jsp">Volver al
+			Perfil</a>
 	</div>
 	<%
+		}
 		} else {
 	%>
 	<p>No se ha encontrado el pedido solicitado o el mismo no
