@@ -36,6 +36,17 @@
           <li class="nav-item active">
             <a class="nav-link" href="<%= request.getContextPath() %>/index.jsp">Inicio</a>
           </li>
+          <% if(request.getSession().getAttribute("cliente") != null) { %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarCliente" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mi Cuenta
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarCliente">
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/admin/perfil.jsp">Mi Perfil</a>
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/admin/cuentacorriente.jsp">Cuenta Corriente</a>
+            </div>
+          </li>
+          <%} %>
           <li class="nav-item">
             <a class="nav-link" href="<%= request.getContextPath() %>/catalogo/articulos.jsp">Catálogo</a>
           </li>
