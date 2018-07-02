@@ -74,4 +74,14 @@
 		<servlet-name>despacho</servlet-name>
 		<url-pattern>/despacho</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>Facturacion</display-name>
+		<servlet-name>facturacion</servlet-name>
+		<servlet-class>edu.uade.apd.tpo.web.servlet.FacturacionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>facturacion</servlet-name>
+		<url-pattern>/facturacion</url-pattern>
+	</servlet-mapping>
 </web-app>
