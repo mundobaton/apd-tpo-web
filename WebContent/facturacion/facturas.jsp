@@ -17,13 +17,18 @@
 	</nav>
 	<h2 class="title text-muted">Facturas Emitidas</h2>
 	<div class="d-flex justify-content-end mb-2">
+		<form method="get" action="?" class="form-inline my-2 my-lg-0 mr-auto">
+			<input name="fid" class="form-control mr-sm-2" type="search"
+				placeholder="Buscar factura nro." aria-label="Buscar">
+			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar factura</button>
+		</form>
 		<span class="text-muted py-2">Filtrar: </span> <a
 			class="btn btn-info ml-3"
-			href="<%=request.getContextPath()%>/admin/facturas.jsp">Ver todas</a>
-		<a class="btn btn-success ml-3"
-			href="<%=request.getContextPath()%>/admin/facturas.jsp?show=pagas">Ver
+			href="<%=request.getContextPath()%>/facturacion/facturas.jsp">Ver
+			todas</a> <a class="btn btn-success ml-3"
+			href="<%=request.getContextPath()%>/facturacion/facturas.jsp?show=pagas">Ver
 			pagas</a> <a class="btn btn-danger ml-3"
-			href="<%=request.getContextPath()%>/admin/facturas.jsp?show=impagas">Ver
+			href="<%=request.getContextPath()%>/facturacion/facturas.jsp?show=impagas">Ver
 			impagas</a>
 	</div>
 	<hr />
@@ -45,12 +50,17 @@
 						List<FacturaDTO> facturas = FacturacionDelegate.getInstance().obtenerFacturas();
 						if (facturas != null && !facturas.isEmpty()) {
 							String ver = "";
+							String fid = "";
 							SimpleDateFormat fdate = new SimpleDateFormat("dd-MM-yyyy");
 							if (request.getParameter("show") != null) {
 								ver = request.getParameter("show");
 							}
+							if (request.getParameter("fid") != null) {
+								fid = request.getParameter("fid");
+							}
 							for (FacturaDTO f : facturas) {
-								if((f.getEstado() == 'P' && ver.equals("impagas")) || (f.getEstado() == 'C' && ver.equals("pagas")) || (ver.equals(""))){
+								if ((f.getId().longValue() == Long.parseLong(fid)) || (f.getEstado() == 'P' && ver.equals("impagas")) || (f.getEstado() == 'C' && ver.equals("pagas"))
+										|| (ver.equals(""))) {
 					%>
 					<tr>
 						<td><%=f.getId()%></td>
@@ -71,8 +81,9 @@
 							href="<%=request.getContextPath()%>/facturacion/factura.jsp?fid=<%=f.getId()%>"><i
 								class="fas fa-eye"></i></a></td>
 					</tr>
-					<%	}
+					<%
 						}
+							}
 						}
 					%>
 				</tbody>
