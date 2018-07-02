@@ -43,7 +43,7 @@
 			%>
 				<tr class="d-flex almacen-item" id="repoId-<%=item.getId()%>">
 					<td class="col-2 item-id"><%=item.getId()%></td>
-					<td class="col-6 item-article"><%=item.getItemPedido().getArticulo().getNombre()%></td>
+					<td class="col-6 item-article"><%=item.getOrdenCompra().getItem().getArticulo().getNombre()%></td>
 					<td class="col-1 item-quantity text-center"><%=item.getCantidad()%></td>
 					<td class="col-2 item-status text-center">
 					<%if(item.getEstado() == 'P') {%>
