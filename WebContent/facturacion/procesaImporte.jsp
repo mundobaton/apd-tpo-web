@@ -36,7 +36,7 @@
 	<h2 class="title text-muted">Procesar Pago Importe</h2>
 	<div class="d-flex justify-content-end mb-2">
 		<form method="get" action="?" class="form-inline my-2 my-lg-0 mr-auto">
-			<input name="cid" class="form-control mr-sm-2" type="search"
+			<input name="mail" class="form-control mr-sm-2" type="search"
 				placeholder="Buscar cliente por mail" aria-label="Buscar">
 			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar
 				Cliente</button>
@@ -47,12 +47,14 @@
 		<div class="col">
 			<h3 class="h3 mb-3">Resultado de la búsqueda</h3>
 			<%
-				if (request.getParameter("cid") != null && !request.getParameter("cid").equals("")) {
-					Long clienteId = Long.parseLong(request.getParameter("cid"));
-					ClienteDTO cliente = AdministracionDelegate.getInstance().findClienteById(clienteId);
+				if (request.getParameter("mail") != null && !request.getParameter("mail").equals("")) {
+					ClienteDTO cliente = AdministracionDelegate.getInstance()
+							.findClienteByEmail(request.getParameter("mail"));
 					if (cliente != null) {
 			%>
-			<h4 class="h4 mb-3">Cliente: <%=cliente.getNombre()%></h4>
+			<h4 class="h4 mb-3">
+				Cliente:
+				<%=cliente.getNombre()%></h4>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><strong>CUIT: </strong><%=cliente.getCuit()%></li>
 				<li class="list-group-item"><strong>Condición IVA: </strong><%=cliente.getCondicionIva()%></li>
@@ -80,15 +82,17 @@
 					}
 				%>
 			</ul>
-			<hr/>
+			<hr />
 			<h4 class="h4 mb-3">Procesar Pago de Importe</h4>
-			<form class="form-inline" action="<%=request.getContextPath()%>/facturacion" method="get">
+			<form class="form-inline"
+				action="<%=request.getContextPath()%>/facturacion" method="get">
 				<div class="form-group">
-					<label class="mr-2" for="importe">Importe a abonar:</label> 
-					<input class="form-control" type="text" name="importe" required /> 
-					<input type="hidden" name="cid" value="<%=cliente.getId()%>" />
+					<label class="mr-2" for="importe">Importe a abonar:</label> <input
+						class="form-control" type="text" name="importe" required /> <input
+						type="hidden" name="cid" value="<%=cliente.getId()%>" />
 				</div>
-				<input class="btn btn-primary ml-3" type="submit" value="Procesar Pago"/>
+				<input class="btn btn-primary ml-3" type="submit"
+					value="Procesar Pago" />
 			</form>
 			<%
 				}
