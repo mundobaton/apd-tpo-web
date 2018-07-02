@@ -62,6 +62,15 @@
               <a class="dropdown-item" href="<%= request.getContextPath() %>/compras/procesar.jsp">Procesar Pendientes</a>
             </div>
           </li>
+          <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.DEPOSITO || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDeposito" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Depósito
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDeposito">
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/deposito/almacen.jsp">Ver Almacén</a>
+            </div>
+          </li>
           <% } if(((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.DESPACHO || ((UsuarioDTO)request.getSession().getAttribute("usuario")).getRol() == RolDTO.ADMINISTRACION) { %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDespacho" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -194,7 +194,7 @@ $(function() {
 		})
 	});
 	
-	$('#article-ajax').on('click', function(e){
+	$('.article-ajax').on('click', function(e){
 		e.preventDefault();
 		var $id = $(this).data('aid');
 		$.ajax({

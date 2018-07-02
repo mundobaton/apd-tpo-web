@@ -27,7 +27,7 @@
 	<ul class="list-group">
 		<li class="list-group-item"><strong>Fecha: </strong><%=f.format(oc.getFechaCreacion())%></li>
 		<li class="list-group-item"><strong>Artí­culo: </strong><a
-			id="article-ajax"
+			class="article-ajax"
 			href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=oc.getItem().getArticulo().getId()%>"
 			data-aid="<%=oc.getItem().getArticulo().getId()%>" target="_blank"><%=oc.getItem().getArticulo().getNombre()%></a></li>
 		<li class="list-group-item"><strong>Cantidad: </strong><%=oc.getItem().getArticulo().getCantCompra()%></li>
