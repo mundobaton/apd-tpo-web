@@ -67,7 +67,7 @@
 		<li class="list-group-item"><strong>Fecha de realización: </strong><%=f.format(pedido.getFechaPedido())%></li>
 		<% if(pedido.getFechaDespacho() != null) { %>		
 		<li class="list-group-item"><strong>Fecha de despacho: </strong><%=f.format(pedido.getFechaDespacho())%></li>
-		<li class="list-group-item"><strong>Transportista: </strong>saraza</li>
+		<li class="list-group-item"><strong>Transportista: </strong><%=pedido.getTransportista()%></li>
 		<% } %>
 		<li class="list-group-item"><strong>Cliente: </strong><%=pedido.getCliente().getNombre()%></li>
 		<li class="list-group-item"><strong>Domicilio: </strong> <%=pedido.getDomicilio().getCalle()%>
@@ -78,7 +78,7 @@
 				<tfoot>
 					<tr>
 						<th colspan="4">Total bruto</th>
-						<th>$<%=pedido.getPrecioBruto()%></th>
+						<th class="text-center">$<%=pedido.getPrecioBruto()%></th>
 					</tr>
 				</tfoot>
 				<thead>
