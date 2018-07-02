@@ -4,8 +4,7 @@
 <main role="main" class="container">
 <section id="article">
 	<%
-		ArticuloDTO art = DepositoDelegate.getInstance()
-				.findArticuloById(Long.parseLong(request.getParameter("id")));
+		ArticuloDTO art = DepositoDelegate.getInstance().findArticuloById(Long.parseLong(request.getParameter("id")));
 	%>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">

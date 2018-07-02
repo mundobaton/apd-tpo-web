@@ -34,7 +34,7 @@
 			<h3>Datos Personales</h3>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><strong>Email: </strong>
-					<%%></li>
+					<%=cliente.getEmail()%></li>
 				<li class="list-group-item"><strong>CUIT: </strong><%=cliente.getCuit()%></li>
 				<li class="list-group-item"><strong>Condición IVA: </strong>{condicion_iva}</li>
 				<li class="list-group-item"><strong>Domicilio: </strong><%=cliente.getDomicilio().getCalle()%>
