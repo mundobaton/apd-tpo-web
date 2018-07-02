@@ -41,7 +41,7 @@
 					<td class="col-2 item-date"><%=f.format(pedido.getFechaPedido())%></td>
 					<td class="col-6 item-consumer"><%=pedido.getCliente().getNombre()%></td>
 					<td class="col-1 text-center"><a class="item-open text-success"
-						href="<%=request.getContextPath()%>/despacho/pedido.jsp?pid=1"><i class="fas fa-eye"></i></a></td>
+						href="<%=request.getContextPath()%>/despacho/pedido.jsp?pid=<%=pedido.getId()%>"><i class="fas fa-eye"></i></a></td>
 				</tr>
 				<%}} %>
 			</tbody>

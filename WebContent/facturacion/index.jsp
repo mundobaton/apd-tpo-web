@@ -7,7 +7,7 @@
 <%@page import="edu.uade.apd.tpo.repository.delegate.DepositoDelegate"%>
 <jsp:include page="../includes/header.jsp" />
 <main role="main" class="container">
-<section id="deposito">
+<section id="facturacion">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Facturación</a></li>
@@ -29,6 +29,7 @@
 			<tbody>
 			<% List<PedidoDTO> pedidos = FacturacionDelegate.getInstance().obtenerPedidosFacturar();
 			if(pedidos != null){
+				
 				SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
 				for(PedidoDTO pedido : pedidos){
 			%>
@@ -42,7 +43,7 @@
 					<td class="col-2 item-date"><%=f.format(pedido.getFechaPedido())%></td>
 					<td class="col-6 item-consumer"><%=pedido.getCliente().getNombre()%></td>
 					<td class="col-1 text-center"><a class="item-open text-success"
-						href="<%=request.getContextPath()%>/facturacion/pedido.jsp?pid=1"><i class="fas fa-eye"></i></a></td>
+						href="<%=request.getContextPath()%>/facturacion/pedido.jsp?pid=<%=pedido.getId()%>"><i class="fas fa-eye"></i></a></td>
 				</tr>
 				<%}} %>
 			</tbody>
