@@ -93,7 +93,7 @@
 	<div class="d-flex justify-content-end">
 		<a class="btn btn-primary"
 			href="<%=request.getContextPath()%>/admin/cuentacorriente.jsp">Volver
-			al Cuenta Corriente</a>
+			a la Cuenta Corriente</a>
 	</div>
 	<%
 		}
