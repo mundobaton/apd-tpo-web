@@ -75,10 +75,9 @@
               Facturación
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarFacturacion">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/facturacion/index.jsp">Inicio</a>
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/facturacion/procesaFactura.jsp">Procesar Pago Factura</a>
+              <a class="dropdown-item" href="<%= request.getContextPath() %>/facturacion/procesaImporte.jsp">Procesar Pago Importe</a>
             </div>
           </li>
           <% } %>

@@ -31,7 +31,7 @@
 			href="<%=request.getContextPath()%>/catalogo/articulo.jsp?id=<%=oc.getItem().getArticulo().getId()%>"
 			data-aid="<%=oc.getItem().getArticulo().getId()%>" target="_blank"><%=oc.getItem().getArticulo().getNombre()%></a></li>
 		<li class="list-group-item"><strong>Cantidad: </strong><%=oc.getItem().getArticulo().getCantCompra()%></li>
-		<li class="list-group-item"><strong>Proveedor: </strong>{proveedor}</li>
+		<li class="list-group-item"><strong>Proveedor: </strong><%=oc.getProveedor()%></li>
 		<li class="list-group-item"><strong>ID pedido origen: </strong><%=oc.getPedido().getId()%></li>
 		<li class="list-group-item"><strong>Estado: </strong> <%
  	if (oc.getEstado() == 'P') {
