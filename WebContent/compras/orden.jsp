@@ -93,6 +93,7 @@
 						class="article-unidad"></span></li>
 					<li class="list-group-item"><strong>Cantidad de
 							compra: </strong><span class="article-compra"></span></li>
+					<li class="list-group-item"><strong>Stock: </strong><span class="article-stock"></span></li>
 				</ul>
 			</div>
 			<div class="modal-footer">

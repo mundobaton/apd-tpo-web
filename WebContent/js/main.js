@@ -211,6 +211,7 @@ $(function() {
 				$modal.find('.price-tag > span').text(r.precio.toFixed(2));
 				$modal.find('.article-unidad').text(r.unidad);
 				$modal.find('.article-compra').text(r.cantCompra);
+				$modal.find('.article-stock').text(r.stock);
 				$modal.modal('show');
 			},
 			error : function(){

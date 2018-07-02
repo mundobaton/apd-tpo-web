@@ -27,10 +27,13 @@
 		</ol>
 	</nav>
 	<%
-		if (request.getParameter("result") !=null && request.getParameter("result").equals("success")) {
+		if (request.getParameter("result") != null && request.getParameter("result").equals("success")) {
 	%>
-	<div class="alert alert-success alert-dismissible fade show" role="alert">
-		<span class="alert-message">La factura #<%=factura.getId()%> ha sido pagada correctamente.</span>
+	<div class="alert alert-success alert-dismissible fade show"
+		role="alert">
+		<span class="alert-message">La factura #<%=factura.getId()%> ha
+			sido pagada correctamente.
+		</span>
 		<button type="button" class="close" data-dismiss="alert"
 			aria-label="Cerrar">
 			<span aria-hidden="true">&times;</span>
@@ -101,7 +104,7 @@
 		<%
 			if (factura.getEstado() == 'P') {
 		%>
-		<a class="btn btn-success" href="#" data-toggle="modal"
+		<a class="btn btn-success ml-3" href="#" data-toggle="modal"
 			data-target="#pagarFactura" role="button">Pagar Total</a>
 		<%
 			}
@@ -111,25 +114,35 @@
 	<div class="modal fade" id="pagarFactura" tabindex="-1" role="dialog"
 		aria-labelledby="pagarFacturaLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<form action="<%=request.getContextPath()%>/facturacion" method="get" class="modal-content">
+			<form action="<%=request.getContextPath()%>/facturacion" method="get"
+				class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="pagarFacturaLabel">Pagar Factura #<%=factura.getId()%></h5>
+					<h5 class="modal-title" id="pagarFacturaLabel">
+						Pagar Factura #<%=factura.getId()%></h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Cerrar">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-				<div class="form-group">
-					<label for="importe">Ingrese el importe a abonar:</label>
-					<input type="text" name="importe" value="<%=factura.getTotal()%>"/>
-					<input type="hidden" name="fid" value="<%=factura.getId()%>"/>
-					<input type="hidden" name="cid" value="<%=factura.getPedido().getCliente().getId()%>"/>
-				</div>
+					<div class="form-group">
+						<input type="hidden" name="action" value="pagarFactura" /> <input
+							type="hidden" name="fid" value="<%=factura.getId()%>" /> <input
+							type="hidden" name="cid"
+							value="<%=factura.getPedido().getCliente().getId()%>" /> <label
+							for="importe">Ingrese el importe a abonar:</label>
+						<div class="input-group">
+							<div class="input-group-prepend"><div class="input-group-text">$</div></div>
+							<input class="form-control" type="number" name="importe" min="1"
+								step="0.01" value="<%=factura.getTotal()%>" />
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button type="submit" class="btn btn-primary">Pagar Total</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-primary ml-3">Pagar
+						Total</button>
 				</div>
 			</form>
 		</div>
