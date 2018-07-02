@@ -25,7 +25,7 @@
 		</ol>
 	</nav>
 	<%
-		if (request.getParameter("result").equals("success")) {
+		if (request.getParameter("result") !=null && request.getParameter("result").equals("success")) {
 	%>
 	<div class="alert alert-success alert-dismissible fade show" role="alert">
 		<span class="alert-message">El pedido #<%=pedido.getId()%> ha sido despachado correctamente.</span>
