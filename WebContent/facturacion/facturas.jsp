@@ -20,7 +20,8 @@
 		<form method="get" action="?" class="form-inline my-2 my-lg-0 mr-auto">
 			<input name="fid" class="form-control mr-sm-2" type="search"
 				placeholder="Buscar factura nro." aria-label="Buscar">
-			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar factura</button>
+			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar
+				factura</button>
 		</form>
 		<span class="text-muted py-2">Filtrar: </span> <a
 			class="btn btn-info ml-3"
@@ -59,13 +60,14 @@
 								fid = request.getParameter("fid");
 							}
 							for (FacturaDTO f : facturas) {
-								if ((!fid.equals("") && f.getId().longValue() == Long.parseLong(fid)) || (f.getEstado() == 'P' && ver.equals("impagas")) || (f.getEstado() == 'C' && ver.equals("pagas"))
-										|| (ver.equals(""))) {
+								if ((!fid.equals("") && f.getId().longValue() == Long.parseLong(fid))
+										|| (f.getEstado() == 'P' && ver.equals("impagas"))
+										|| (f.getEstado() == 'C' && ver.equals("pagas")) || (ver.equals(""))) {
 					%>
-					<tr>
-						<td><%=f.getId()%></td>
-						<td><%=fdate.format(f.getFecha())%></td>
-						<td>
+					<tr class="d-flex">
+						<td class="col-1"><%=f.getId()%></td>
+						<td class="col-2"><%=fdate.format(f.getFecha())%></td>
+						<td class="col-1">
 							<%
 								if (f.getEstado() == 'P') {
 							%> <span class="badge badge-pill badge-warning">Pendiente</span>
@@ -75,9 +77,9 @@
  	}
  %>
 						</td>
-						<td><%=f.getPedido().getCliente().getNombre()%></td>
-						<td>$<%=Math.round(f.getTotal() * 100.00) / 100.00%></td>
-						<td><a class="item-open text-success"
+						<td class="col-6"><%=f.getPedido().getCliente().getNombre()%></td>
+						<td class="col-1">$<%=Math.round(f.getTotal() * 100.00) / 100.00%></td>
+						<td class="col-1"><a class="item-open text-success"
 							href="<%=request.getContextPath()%>/facturacion/factura.jsp?fid=<%=f.getId()%>"><i
 								class="fas fa-eye"></i></a></td>
 					</tr>
