@@ -3,7 +3,6 @@
 <%@page import="edu.uade.apd.tpo.repository.dto.PedidoDTO"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.ClienteDTO"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.ArticuloDTO"%>
-<%@page import="edu.uade.apd.tpo.repository.delegate.DepositoDelegate"%>
 <jsp:include page="../includes/header.jsp" />
 <main role="main" class="container">
 <section id="perfil">

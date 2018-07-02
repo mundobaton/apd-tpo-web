@@ -2,8 +2,7 @@
 <%@page import="edu.uade.apd.tpo.repository.dto.FacturaDTO"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.ClienteDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page
-	import="edu.uade.apd.tpo.repository.delegate.AdministracionDelegate"%>
+<%@page import="edu.uade.apd.tpo.repository.delegate.AdministracionDelegate"%>
 <jsp:include page="../includes/header.jsp" />
 <main role="main" class="container">
 <section id="factura">
