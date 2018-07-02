@@ -34,62 +34,64 @@
 	</div>
 	<hr />
 	<div class="row">
-		<div class="table-responsive">
-			<table class="table">
-				<thead class="thead-light">
-					<tr class="d-flex">
-						<th scope="col" class="col-1">Nro.</th>
-						<th scope="col" class="col-2">Fecha</th>
-						<th scope="col" class="col-1">Estado</th>
-						<th scope="col" class="col-6">Cliente</th>
-						<th scope="col" class="col-1">Importe</th>
-						<th scope="col" class="col-1 text-center">Ver</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%
-						List<FacturaDTO> facturas = FacturacionDelegate.getInstance().obtenerFacturas();
-						if (facturas != null && !facturas.isEmpty()) {
-							String ver = "";
-							String fid = "";
-							SimpleDateFormat fdate = new SimpleDateFormat("dd-MM-yyyy");
-							if (request.getParameter("show") != null) {
-								ver = request.getParameter("show");
-							}
-							if (request.getParameter("fid") != null) {
-								fid = request.getParameter("fid");
-							}
-							for (FacturaDTO f : facturas) {
-								if ((!fid.equals("") && f.getId().longValue() == Long.parseLong(fid))
-										|| (f.getEstado() == 'P' && ver.equals("impagas"))
-										|| (f.getEstado() == 'C' && ver.equals("pagas")) || (ver.equals(""))) {
-					%>
-					<tr class="d-flex">
-						<td class="col-1"><%=f.getId()%></td>
-						<td class="col-2"><%=fdate.format(f.getFecha())%></td>
-						<td class="col-1">
-							<%
-								if (f.getEstado() == 'P') {
-							%> <span class="badge badge-pill badge-warning">Pendiente</span>
-							<%
-								} else if (f.getEstado() == 'C') {
-							%> <span class="badge badge-pill badge-success">Paga</span> <%
+		<div class="col">
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-light">
+						<tr class="d-flex">
+							<th scope="col" class="col-1">Nro.</th>
+							<th scope="col" class="col-2">Fecha</th>
+							<th scope="col" class="col-1">Estado</th>
+							<th scope="col" class="col-6">Cliente</th>
+							<th scope="col" class="col-1">Importe</th>
+							<th scope="col" class="col-1 text-center">Ver</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%
+							List<FacturaDTO> facturas = FacturacionDelegate.getInstance().obtenerFacturas();
+							if (facturas != null && !facturas.isEmpty()) {
+								String ver = "";
+								String fid = "";
+								SimpleDateFormat fdate = new SimpleDateFormat("dd-MM-yyyy");
+								if (request.getParameter("show") != null) {
+									ver = request.getParameter("show");
+								}
+								if (request.getParameter("fid") != null) {
+									fid = request.getParameter("fid");
+								}
+								for (FacturaDTO f : facturas) {
+									if ((!fid.equals("") && f.getId().longValue() == Long.parseLong(fid))
+											|| (f.getEstado() == 'P' && ver.equals("impagas"))
+											|| (f.getEstado() == 'C' && ver.equals("pagas")) || (ver.equals(""))) {
+						%>
+						<tr class="d-flex">
+							<td class="col-1"><%=f.getId()%></td>
+							<td class="col-2"><%=fdate.format(f.getFecha())%></td>
+							<td class="col-1">
+								<%
+									if (f.getEstado() == 'P') {
+								%> <span class="badge badge-pill badge-warning">Pendiente</span>
+								<%
+									} else if (f.getEstado() == 'C') {
+								%> <span class="badge badge-pill badge-success">Paga</span> <%
  	}
  %>
-						</td>
-						<td class="col-6"><%=f.getPedido().getCliente().getNombre()%></td>
-						<td class="col-1">$<%=Math.round(f.getTotal() * 100.00) / 100.00%></td>
-						<td class="col-1"><a class="item-open text-success"
-							href="<%=request.getContextPath()%>/facturacion/factura.jsp?fid=<%=f.getId()%>"><i
-								class="fas fa-eye"></i></a></td>
-					</tr>
-					<%
-						}
+							</td>
+							<td class="col-6"><%=f.getPedido().getCliente().getNombre()%></td>
+							<td class="col-1">$<%=Math.round(f.getTotal() * 100.00) / 100.00%></td>
+							<td class="col-1 text-center"><a class="item-open text-success"
+								href="<%=request.getContextPath()%>/facturacion/factura.jsp?fid=<%=f.getId()%>"><i
+									class="fas fa-eye"></i></a></td>
+						</tr>
+						<%
 							}
-						}
-					%>
-				</tbody>
-			</table>
+								}
+							}
+						%>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </section>
