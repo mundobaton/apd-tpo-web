@@ -11,8 +11,7 @@
 <section id="factura">
 	<%
 		if (request.getParameter("fid") != null) {
-			FacturaDTO factura = FacturacionDelegate.getInstance()
-					.obtenerFacturaPorId(Long.parseLong(request.getParameter("fid")));
+			FacturaDTO factura = FacturacionDelegate.getInstance().obtenerFacturaPorId(Long.parseLong(request.getParameter("fid")));
 			SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
 			if (factura != null) {
 	%>
