@@ -71,7 +71,7 @@
 							for (FacturaDTO f : cliente.getCuentaCorriente().getFacturas()) {
 											if (f.getEstado() == 'P') {
 						%>
-						<li><%=fdate.format(f.getFecha())%> | #<%=f.getId()%> <span
+						<li><%=fdate.format(f.getFecha())%> | Factura #<%=f.getId()%> <span
 							class="text-muted">$<%=f.getTotal()%></span></li>
 						<%
 							}
@@ -87,12 +87,17 @@
 			<form class="form-inline"
 				action="<%=request.getContextPath()%>/facturacion" method="get">
 				<div class="form-group">
-					<label class="mr-2" for="importe">Importe a abonar:</label> <input
-						class="form-control" type="text" name="importe" required /> <input
-						type="hidden" name="cid" value="<%=cliente.getId()%>" />
+					<label class="mr-2" for="importe">Importe a abonar:</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">$</div>
+						</div>
+						<input class="form-control" type="text" name="importe" required />
+					</div>
+					<input type="hidden" name="mail" value="<%=cliente.getEmail()%>" /> 
+					<input type="hidden" name="action" value="pagarImporte" /> 
+					<input class="btn btn-primary ml-3" type="submit" value="Procesar Pago" />
 				</div>
-				<input class="btn btn-primary ml-3" type="submit"
-					value="Procesar Pago" />
 			</form>
 			<%
 				}

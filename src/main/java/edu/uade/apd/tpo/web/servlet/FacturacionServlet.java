@@ -54,7 +54,7 @@ public class FacturacionServlet extends HttpServlet {
 			cliente = admDelegate.findClienteByEmail(mail);
 			float importe = Float.parseFloat(req.getParameter("importe"));
 			delegate.pagarImporte(importe, cliente.getId());
-			navigate(req, resp, "/facturacion/procesarImporte.jsp?cid=" + cliente.getId() + "&result=success");
+			navigate(req, resp, "/facturacion/procesaImporte.jsp?cid=" + cliente.getId() + "&result=success");
 		}
 	}
 
