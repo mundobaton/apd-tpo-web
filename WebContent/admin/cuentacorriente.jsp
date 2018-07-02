@@ -73,9 +73,10 @@
 						<%} else { %>
 						Pendiente
 						<%} %>
-						<td><%=f.getPedido().getId()%></td>
+						<td><a href="<%=request.getContextPath()%>/admin/pedido.jsp?pid=<%=f.getPedido().getId()%>""><%=f.getPedido().getId()%></a></td>
 						<td><%=f.getTotal()%></td>
-						<td><a href="#">Ver</a></td>
+						<td><a class="item-open text-success"
+						href="<%=request.getContextPath()%>/admin/factura.jsp?fid=<%=f.getId()%>"><i class="fas fa-eye"></i></a></td>
 					</tr>
 					<%} %>
 					</tbody>
