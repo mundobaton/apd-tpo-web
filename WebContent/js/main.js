@@ -187,6 +187,7 @@ $(function() {
 				showAlert('Error: '+request.responseText, 'danger');
 		    },
 		    complete: function(){
+		    	$submit.removeAttr('disabled');
 		    	$('.fa-spinner').remove();
 				$('#showItemReposicion').modal('hide');
 		    }
