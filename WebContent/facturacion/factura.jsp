@@ -20,7 +20,7 @@
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Facturación</a></li>
 			<li class="breadcrumb-item"><a
-				href="<%=request.getContextPath()%>/facturacion/facturas.jsp">Facturas
+				href="<%=request.getContextPath()%>/facturacion/facturas.jsp?show=todas">Facturas
 					Emitidas</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Ver
 				Factura #<%=factura.getId()%></li>
@@ -99,7 +99,7 @@
 	<hr />
 	<div class="d-flex justify-content-end">
 		<a class="btn btn-primary"
-			href="<%=request.getContextPath()%>/facturacion/facturas.jsp">Volver
+			href="<%=request.getContextPath()%>/facturacion/facturas.jsp?show=todas">Volver
 			al listado</a>
 		<%
 			if (factura.getEstado() == 'P') {
