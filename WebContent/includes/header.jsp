@@ -89,7 +89,6 @@
               <a class="dropdown-item" href="<%= request.getContextPath() %>/facturacion/index.jsp">Pedidos a Facturar</a>
               <div class="dropdown-divider"></div>               
               <a class="dropdown-item" href="<%= request.getContextPath() %>/facturacion/facturas.jsp">Facturas Emitidas</a>
-              <a class="dropdown-item" href="<%= request.getContextPath() %>/facturacion/procesaFactura.jsp">Procesar Pago Factura</a>
               <a class="dropdown-item" href="<%= request.getContextPath() %>/facturacion/procesaImporte.jsp">Procesar Pago Importe</a>
             </div>
           </li>

@@ -17,6 +17,7 @@ public class FacturacionServlet extends HttpServlet {
 	private static final String ACTION = "action";
 	private static final String FACTURAR = "facturar";
 	private static final String PAGAR_FACTURA = "pagarFactura";
+	private static final String PAGAR_IMPORTE = "pagarImporte";
 
 	@Override
 	public void init() throws ServletException {
@@ -42,6 +43,12 @@ public class FacturacionServlet extends HttpServlet {
 			float importe = Float.parseFloat(req.getParameter("importe"));
 			delegate.pagarFactura(facturaId, importe, clienteId);
 			navigate(req, resp, "/facturacion/factura.jsp?fid=" + facturaId + "&result=success");
+		}
+		if(action.equals(PAGAR_IMPORTE)) {
+			Long clienteId = Long.parseLong(req.getParameter("cid"));
+			float importe = Float.parseFloat(req.getParameter("importe"));
+			delegate.pagarImporte(importe, clienteId);
+			navigate(req, resp, "/facturacion/procesarImporte.jsp?cid=" + clienteId + "&result=success");
 		}
 	}
 
