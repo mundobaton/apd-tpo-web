@@ -25,7 +25,7 @@
 		</form>
 		<span class="text-muted py-2">Filtrar: </span> <a
 			class="btn btn-info ml-3"
-			href="<%=request.getContextPath()%>/facturacion/facturas.jsp">Ver
+			href="<%=request.getContextPath()%>/facturacion/facturas.jsp?show=todas">Ver
 			todas</a> <a class="btn btn-success ml-3"
 			href="<%=request.getContextPath()%>/facturacion/facturas.jsp?show=pagas">Ver
 			pagas</a> <a class="btn btn-danger ml-3"
@@ -52,18 +52,18 @@
 							List<FacturaDTO> facturas = FacturacionDelegate.getInstance().obtenerFacturas();
 							if (facturas != null && !facturas.isEmpty()) {
 								String ver = "";
-								String fid = "";
+								Long fid = new Long(0);
 								SimpleDateFormat fdate = new SimpleDateFormat("dd-MM-yyyy");
 								if (request.getParameter("show") != null) {
 									ver = request.getParameter("show");
 								}
 								if (request.getParameter("fid") != null) {
-									fid = request.getParameter("fid");
+									fid = Long.parseLong(request.getParameter("fid"));
 								}
 								for (FacturaDTO f : facturas) {
-									if ((!fid.equals("") && f.getId().longValue() == Long.parseLong(fid))
+									if ((f.getId().longValue() == fid.longValue())
 											|| (f.getEstado() == 'P' && ver.equals("impagas"))
-											|| (f.getEstado() == 'C' && ver.equals("pagas")) || (ver.equals(""))) {
+											|| (f.getEstado() == 'C' && ver.equals("pagas")) || (ver.equals("todas"))) {
 						%>
 						<tr class="d-flex">
 							<td class="col-1"><%=f.getId()%></td>
