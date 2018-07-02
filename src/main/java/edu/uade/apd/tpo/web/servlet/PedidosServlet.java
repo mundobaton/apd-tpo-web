@@ -40,7 +40,7 @@ public class PedidosServlet extends HttpServlet {
 		if(action.equals(CREAR_PEDIDO)) {
 			ClienteDTO cliente = (ClienteDTO) req.getSession().getAttribute("cliente");
 			String calle = req.getParameter(CALLE);
-			int numero = Integer.parseInt(req.getParameter(NUMERO));
+			String numero = req.getParameter(NUMERO);
 			String provincia = req.getParameter(PROVINCIA);
 			String ciudad = req.getParameter(CIUDAD);
 			String codPostal = req.getParameter(COD_POSTAL);
