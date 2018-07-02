@@ -91,7 +91,7 @@
 							</td>
 							<td><a
 								href="<%=request.getContextPath()%>/admin/pedido.jsp?pid=<%=f.getPedido().getId()%>"><%=f.getPedido().getId()%></a></td>
-							<td><%=f.getTotal()%></td>
+							<td>$<%=Math.round(f.getTotal()*100.00)/100.00%></td>
 							<td><a class="item-open text-success"
 								href="<%=request.getContextPath()%>/admin/factura.jsp?fid=<%=f.getId()%>"><i
 									class="fas fa-eye"></i></a></td>
