@@ -27,6 +27,7 @@ public class AdministracionServlet extends HttpServlet {
 	private static final String USUARIO = "usuario";
 	private static final String LOGOUT = "logout";
 	private static final String LEGAJO = "legajo";
+	private static final String ERROR = "error";
 
 	@Override
 	public void init() throws ServletException {
@@ -58,8 +59,10 @@ public class AdministracionServlet extends HttpServlet {
 				ClienteDTO cliente = administracionDelegate.loginCliente(email, password);
 				HttpSession session = req.getSession(true);
 				session.setAttribute(CLIENTE, cliente);
+				navigate(req, resp, "/index.jsp");
 			} catch (RemoteBusinessException be) {
-				// TODO manejo de error cuando no existe el cliente
+				req.setAttribute("error", be.getMessage());
+				navigate(req, resp, "/admin/login.jsp");
 			}
 		} else if(action.equals(LOGIN_USUARIO)) {
 			String legajo = req.getParameter(LEGAJO);
@@ -68,11 +71,13 @@ public class AdministracionServlet extends HttpServlet {
 				UsuarioDTO usuario = administracionDelegate.loginUsuario(legajo, password);
 				HttpSession session = req.getSession(true);
 				session.setAttribute(USUARIO, usuario);
-			} catch (RemoteBusinessException e) {
-				// TODO manejo de error cuando no existe el cliente
+				navigate(req, resp, "/index.jsp");
+			} catch (RemoteBusinessException be) {
+				req.setAttribute("error", be.getMessage());
+				navigate(req, resp, "/admin/admlogin.jsp");
 			}
 		}
-		navigate(req, resp, "/index.jsp");
+		
 	}
 	
 	private void navigate(HttpServletRequest req, HttpServletResponse resp, String url) throws IOException, ServletException {
