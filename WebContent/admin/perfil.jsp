@@ -14,17 +14,8 @@
 		</ol>
 	</nav>
 	<%
-		/*
-		private Long id;
-		private String email;
-		private String password;
-		private CuentaCorriente cuentaCorriente;
-		private Domicilio domicilio;
-		private List<Pedido> pedidos;
-		*/
 		ClienteDTO cliente = (ClienteDTO) request.getSession().getAttribute("cliente");
-		if (cliente != null) {
-			
+		if (cliente != null) {		
 	%>
 	<h2 class="title text-muted">
 		Perfil de <span class="client-name"><%=cliente.getNombre()%></span>
@@ -36,7 +27,7 @@
 				<li class="list-group-item"><strong>Email: </strong>
 					<%=cliente.getEmail()%></li>
 				<li class="list-group-item"><strong>CUIT: </strong><%=cliente.getCuit()%></li>
-				<li class="list-group-item"><strong>Condición IVA: </strong>{condicion_iva}</li>
+				<li class="list-group-item"><strong>Condición IVA: </strong><%=cliente.getCondicionIva()%></li>
 				<li class="list-group-item"><strong>Domicilio: </strong><%=cliente.getDomicilio().getCalle()%>
 					<%=cliente.getDomicilio().getNumero()%> - (<%=cliente.getDomicilio().getCodigoPostal()%>)
 					<%=cliente.getDomicilio().getLocalidad()%>, <%=cliente.getDomicilio().getProvincia()%></li>

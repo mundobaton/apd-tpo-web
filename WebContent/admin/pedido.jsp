@@ -20,8 +20,7 @@
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Mi Cuenta</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Cuenta
-				Corriente</li>
+			<li class="breadcrumb-item active" aria-current="page">Ver Pedido</li>
 		</ol>
 	</nav>
 	<h2 class="title text-muted">
