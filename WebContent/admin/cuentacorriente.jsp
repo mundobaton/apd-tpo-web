@@ -1,3 +1,4 @@
+<%@page import="edu.uade.apd.tpo.repository.delegate.AdministracionDelegate"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.FacturaDTO"%>
 <%@page import="edu.uade.apd.tpo.repository.dto.NotaDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
