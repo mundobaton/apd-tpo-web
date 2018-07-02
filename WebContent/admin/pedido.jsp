@@ -7,7 +7,7 @@
 	import="edu.uade.apd.tpo.repository.delegate.AdministracionDelegate"%>
 <jsp:include page="../includes/header.jsp" />
 <main role="main" class="container">
-<section id="factura">
+<section id="pedido">
 	<%
 		PedidoDTO pedido = AdministracionDelegate.getInstance()
 				.findPedidoById(Long.parseLong(request.getParameter("pid")));
