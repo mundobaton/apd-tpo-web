@@ -64,7 +64,7 @@
 				<tfoot>
 					<tr>
 						<th colspan="4">Total</th>
-						<th class="text-center">$<%=Math.round(factura.getTotal()*100.00)/100.00%></th>
+						<th class="text-center">$<%=factura.getTotal()%></th>
 					</tr>
 				</tfoot>
 				<thead>
@@ -134,7 +134,7 @@
 						<div class="input-group">
 							<div class="input-group-prepend"><div class="input-group-text">$</div></div>
 							<input class="form-control" type="number" name="importe" min="1"
-								step="0.01" value="<%=Math.round(factura.getTotal()*100.00)/100.00%>" />
+								step="any" value="<%=factura.getTotal()%>" />
 						</div>
 					</div>
 				</div>
